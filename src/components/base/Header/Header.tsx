@@ -13,7 +13,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import CustomButton from '@/components/ui/buttun/Buttun';
+import CustomButton from '@/components/ui/buttun/GreenQuadButtun';
+import GreenQuadButton from '@/components/ui/buttun/GreenQuadButtun';
 
 const pages = ['利用規約', 'ニュース', '私たちについて'];
 
@@ -125,7 +126,7 @@ function ResponsiveAppBar() {
                             </Button>
                         ))}
                     </Box>
-                    <CustomButton>ログイン</CustomButton>
+                    <GreenQuadButton>ログイン</GreenQuadButton>
                 </Toolbar>
             </Container>
         </AppBar >
