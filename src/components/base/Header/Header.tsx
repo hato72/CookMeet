@@ -114,7 +114,7 @@ function ResponsiveAppBar() {
                     >
                         CookMeet
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, columnGap: {xs: null, md: 2}, justifyContent: { xs: null, md: 'right' }, mr: {xs: null, md: 4} }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
