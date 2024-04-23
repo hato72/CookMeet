@@ -1,5 +1,13 @@
-// 本番はPOSTメソッドなので要注意
-// GETメソッドはテスト用です
+/* 
+ 本番はPOSTメソッドなので要注意
+ GETメソッドはテスト用です
+
+ 必要なリクエストボディ
+ {
+    'requirements': string[]・・・必須条件
+    'results': string[]・・・心理テストの結果（いい変数名が思いつかないので、合わせます）
+ }
+*/
 export const GET = async (request: Request) => {
     return Response.json(
         [{
@@ -32,7 +40,14 @@ export const GET = async (request: Request) => {
         ]);
 };
 
-// 本番用はPOSTメソッド
+/* 
+ 本番用はPOSTメソッド
+必要なリクエストボディ
+{
+    'requirements': string[]・・・必須条件
+    'results': string[]・・・心理テストの結果（いい変数名が思いつかないので、合わせます）
+}
+*/
 export const POST = async (request: Request) => {
     return Response.json(
         [{
