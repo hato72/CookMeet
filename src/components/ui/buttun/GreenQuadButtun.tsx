@@ -5,7 +5,7 @@ interface CustomButtonProps extends ButtonProps {
     children: React.ReactNode;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ children, ...props }) => {
+const GreenQuadButton: React.FC<CustomButtonProps> = ({ children, ...props }) => {
     return (
         <Button variant="contained" color="success" {...props}>
             {children}
@@ -13,4 +13,4 @@ const CustomButton: React.FC<CustomButtonProps> = ({ children, ...props }) => {
     );
 };
 
-export default CustomButton;
+export default GreenQuadButton;

@@ -17,7 +17,7 @@ const RecipeCard: React.FC<CardProps> = ({ img, title, description, width, heigh
                 <h2 className={`${styles.card__title} ${styles.defaultText}`}>{title}</h2>
                 <p className={`${styles.card__description} ${styles.defaultText}`}>{description}</p>
             </div>
-            <button className={`${styles.card__btn} ${styles.defaultText}`}>View Recipe</button>
+            <button className={`${styles.card__btn} `}>View Recipe</button>
         </div>
     );
 }
