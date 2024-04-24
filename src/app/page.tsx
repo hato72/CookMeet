@@ -4,6 +4,7 @@ import RecipeCard from "@/components/base/meal/meal";
 import Layout from "./layout";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
 
 export default function Home() {
   return (
@@ -23,7 +24,10 @@ export default function Home() {
         width="300px"
         height="450px" />
       <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
+      <br></br>
+      <WhiteRoundButton>戻る</WhiteRoundButton>
       <BlackRoundButton>完成</BlackRoundButton>
+      <br></br>
     </Layout>
   );
 }
