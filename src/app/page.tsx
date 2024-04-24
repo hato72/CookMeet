@@ -5,6 +5,8 @@ import Layout from "./layout";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
+import SettingsAccountBar from "@/components/ui/buttun/SettingsAccountBar";
+import SettingsHistoryBar from "@/components/ui/buttun/SettingsHistoryBar";
 
 export default function Home() {
   return (
@@ -26,8 +28,12 @@ export default function Home() {
       <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
       <br></br>
       <WhiteRoundButton>戻る</WhiteRoundButton>
+      <BlackRoundButton>次へ</BlackRoundButton>
       <BlackRoundButton>完成</BlackRoundButton>
       <br></br>
+      <SettingsAccountBar />
+      <br></br>
+      <SettingsHistoryBar />
     </Layout>
   );
 }
