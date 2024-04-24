@@ -33,6 +33,7 @@ const TextInput: React.FC<TextInputProps> = ({ label, helperText, placeholder, v
         value={value}
         type={type}
         onChange={onChange}
+        fullWidth
         />
     );
 };
