@@ -7,20 +7,28 @@ import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
 import SettingsAccountBar from "@/components/ui/buttun/SettingsAccountBar";
 import SettingsHistoryBar from "@/components/ui/buttun/SettingsHistoryBar";
-import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun copy";
+import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 import SocialMediaButton from "@/components/ui/buttun/SocialMediaButton";
 import { TextField } from "@mui/material";
 import TextFields from "@/components/ui/form/form";
 import BasicTextField from "@/components/ui/form/form";
+import Footer from "@/components/base/Footer/footer";
 
 export default function Home() {
   return (
     <Layout>
-      <div className="text-4xl text-black text-center">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      </div>
+      <div className="text-4xl text-black text-center font-serif">
         <h1>Meet a new meal.</h1>
         <p>毎日同じメニュー...</p>
         <p>献立を決めるのが面倒...</p>
         <p>そんな食卓に革命を。</p>
+      </div>
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      </div>
+      <div className="text-center">
+        <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
       </div>
       <p className="text-black">とりあえずいろんなコンポーネント適当に表示してます</p>
       <RecipeCard
@@ -30,7 +38,6 @@ export default function Home() {
         and only contains 5 ingredients!"
         width="300px"
         height="450px" />
-      <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
       <br></br>
       <SocialMediaButton>SNSでシェアする</SocialMediaButton>
       <br></br>
@@ -43,10 +50,8 @@ export default function Home() {
       <WhiteRoundButton>戻る</WhiteRoundButton>
       <BlackRoundButton>次へ</BlackRoundButton>
       <BlackRoundButton>完成</BlackRoundButton>
-      <br></br>
-      <SettingsAccountBar />
-      <br></br>
-      <SettingsHistoryBar />
+
+      <Footer />
     </Layout>
   );
 }
