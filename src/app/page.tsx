@@ -7,6 +7,11 @@ import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
 import SettingsAccountBar from "@/components/ui/buttun/SettingsAccountBar";
 import SettingsHistoryBar from "@/components/ui/buttun/SettingsHistoryBar";
+import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun copy";
+import SocialMediaButton from "@/components/ui/buttun/SocialMediaButton";
+import { TextField } from "@mui/material";
+import TextFields from "@/components/ui/form/form";
+import BasicTextField from "@/components/ui/form/form";
 
 export default function Home() {
   return (
@@ -26,6 +31,14 @@ export default function Home() {
         width="300px"
         height="450px" />
       <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
+      <br></br>
+      <SocialMediaButton>SNSでシェアする</SocialMediaButton>
+      <br></br>
+      <BasicTextField label="ユーザー名" />
+      <BasicTextField label="メールアドレス" />
+      <BasicTextField label="パスワード" />
+      <BasicTextField label="パスワード（再入力）" />
+      <WhiteQuadButton>新規登録</WhiteQuadButton>
       <br></br>
       <WhiteRoundButton>戻る</WhiteRoundButton>
       <BlackRoundButton>次へ</BlackRoundButton>
