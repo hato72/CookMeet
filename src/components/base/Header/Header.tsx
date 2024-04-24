@@ -46,7 +46,7 @@ function ResponsiveAppBar() {
                         variant="h4"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -101,7 +101,7 @@ function ResponsiveAppBar() {
                         variant="h4"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -115,7 +115,7 @@ function ResponsiveAppBar() {
                     >
                         CookMeet
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, columnGap: {xs: null, md: 2}, justifyContent: { xs: null, md: 'right' }, mr: {xs: null, md: 4} }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
