@@ -13,6 +13,9 @@ import { TextField } from "@mui/material";
 import TextFields from "@/components/ui/form/form";
 import BasicTextField from "@/components/ui/form/form";
 import Footer from "@/components/base/Footer/footer";
+import CheckboxLabel from "@/components/base/prep/CheckboxLabel";
+import { Checklist } from "@mui/icons-material";
+import CheckList from "@/components/base/prep/CheckList";
 
 export default function Home() {
   return (
@@ -41,16 +44,13 @@ export default function Home() {
       <br></br>
       <SocialMediaButton>SNSでシェアする</SocialMediaButton>
       <br></br>
-      <BasicTextField label="ユーザー名" />
-      <BasicTextField label="メールアドレス" />
-      <BasicTextField label="パスワード" />
-      <BasicTextField label="パスワード（再入力）" />
       <WhiteQuadButton>新規登録</WhiteQuadButton>
       <br></br>
       <WhiteRoundButton>戻る</WhiteRoundButton>
       <BlackRoundButton>次へ</BlackRoundButton>
       <BlackRoundButton>完成</BlackRoundButton>
-
+      <br></br>
+      <CheckList />
       <Footer />
     </Layout>
   );
