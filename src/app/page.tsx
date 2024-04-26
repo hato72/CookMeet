@@ -23,7 +23,7 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       </div>
       <div className="text-center">
-        <Link href="/quiz">
+        <Link href="/cook/question">
           <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton></Link>
       </div>
       <p className="text-black">とりあえずいろんなコンポーネント適当に表示してます</p>
