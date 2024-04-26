@@ -7,6 +7,7 @@ import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
 import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 import SocialMediaButton from "@/components/ui/buttun/SocialMediaButton";
 import CheckList from "@/components/base/prep/CheckList";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -22,16 +23,10 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       </div>
       <div className="text-center">
-        <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
+        <Link href="/quiz">
+          <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton></Link>
       </div>
       <p className="text-black">とりあえずいろんなコンポーネント適当に表示してます</p>
-      <RecipeCard
-        img="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-        title="The Everyday Salad"
-        description="Take your boring salads up a knotch. This recipe is perfect for lunch
-        and only contains 5 ingredients!"
-        width="300px"
-        height="450px" />
       <br></br>
       <SocialMediaButton>SNSでシェアする</SocialMediaButton>
       <br></br>

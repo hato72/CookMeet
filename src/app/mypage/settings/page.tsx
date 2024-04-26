@@ -6,14 +6,8 @@ export default function MyPage() {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">マイページ</h1>
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900">アカウント設定</h1>
             </div>
-            <Link href="/mypage/settings">
-                <SettingsAccountBar />
-            </Link>
-            <Link href="/mypage/history">
-                <SettingsHistoryBar />
-            </Link>
         </>
     );
 }
