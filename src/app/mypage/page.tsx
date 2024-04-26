@@ -1,8 +1,6 @@
 import SettingsAccountBar from "@/components/ui/buttun/SettingsAccountBar";
-import Layout from "../layout";
-import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 import SettingsHistoryBar from "@/components/ui/buttun/SettingsHistoryBar";
-import Footer from "@/components/base/Footer/footer";
+import Link from "next/link";
 
 export default function MyPage() {
     return (
@@ -11,7 +9,9 @@ export default function MyPage() {
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">マイページ</h1>
             </div>
             <SettingsAccountBar />
-            <SettingsHistoryBar />
+            <Link href="/mypage/history">
+                <SettingsHistoryBar />
+            </Link>
         </>
     );
 }

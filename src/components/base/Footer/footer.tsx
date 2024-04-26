@@ -6,17 +6,15 @@ import Typography from "@mui/material/Typography";
 
 const Footer: React.FC = () => {
     return (
-        <>
-            <AppBar className="absolute bottom-0" component="footer" position="static" sx={{ backgroundColor: '#000000' }}>
-                <Container maxWidth="md">
-                    <Box sx={{ textAlign: 'center' }}>
-                        <Typography variant="caption">
-                            ©2024 CookMeet
-                        </Typography>
-                    </Box>
-                </Container>
-            </AppBar>
-        </>
+        <AppBar component="footer" position="fixed" sx={{ top: 'auto', bottom: 0, backgroundColor: '#000000' }}>
+            <Container maxWidth="md">
+                <Box sx={{ textAlign: 'center' }}>
+                    <Typography variant="caption" color="white">
+                        ©2024 CookMeet
+                    </Typography>
+                </Box>
+            </Container>
+        </AppBar>
     );
 };
 
