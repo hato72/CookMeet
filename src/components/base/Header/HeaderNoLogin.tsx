@@ -19,7 +19,7 @@ import Link from 'next/link';
 
 const pages = ['利用規約', 'ニュース', '私たちについて'];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBarNoLogin() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -127,12 +127,9 @@ function ResponsiveAppBar() {
                             </Button>
                         ))}
                     </Box>
-                    <Link href="/login">
-                        <GreenQuadButton>ログイン</GreenQuadButton>
-                    </ Link>
                 </Toolbar>
             </Container>
         </AppBar >
     );
 }
-export default ResponsiveAppBar;
+export default ResponsiveAppBarNoLogin;

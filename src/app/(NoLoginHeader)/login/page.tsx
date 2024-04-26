@@ -1,6 +1,7 @@
 'use client';
 
 import GreenQuadButton from "@/components/ui/buttun/GreenQuadButtun";
+import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 import TextInput from "@/components/ui/form/TextInput";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,8 +37,8 @@ const Page = () => {
         <div className="flex">
             <div className="basis-1/2 pt-16 pl-16 pr-5">
                 <hgroup>
-                    <h2 className="text-4xl text-green-600 font-bold">Meet a new meal.</h2>
-                    <p className="mt-10">おかえりなさい。ログインしてください。</p>
+                    <h2 className="text-4xl text-green-700 font-bold">Meet a new meal.</h2>
+                    <p className="mt-10 text-green-700">おかえりなさい。ログインしてください。</p>
                 </hgroup>
                 <form action="POST" onSubmit={onSubmit} className="mt-10">
                     <div>
@@ -71,7 +72,9 @@ const Page = () => {
                                     <GreenQuadButton type="submit">ログイン</GreenQuadButton>
                                 </li>
                                 <li>
-                                    <Link href={'/signin'}><GreenQuadButton>新規登録</GreenQuadButton></Link>
+                                    <Link href={'/signin'}>
+                                        <WhiteQuadButton>新規登録</WhiteQuadButton>
+                                    </Link>
                                 </li>
                             </menu>
                         </div>
