@@ -26,25 +26,6 @@ export default function Home() {
         <Link href="/cook/question">
           <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton></Link>
       </div>
-      <p className="text-black">とりあえずいろんなコンポーネント適当に表示してます</p>
-      <br></br>
-      <SocialMediaButton>SNSでシェアする</SocialMediaButton>
-      <br></br>
-      <WhiteQuadButton>新規登録</WhiteQuadButton>
-      <br></br>
-      <WhiteRoundButton>戻る</WhiteRoundButton>
-      <BlackRoundButton>次へ</BlackRoundButton>
-      <BlackRoundButton>完成</BlackRoundButton>
-      <br></br>
-      <CheckList />
     </>
   );
 }
-
-{/* <RecipeCard
-        img="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-        title="The Everyday Salad"
-        description="Take your boring salads up a knotch. This recipe is perfect for lunch
-          and only contains 5 ingredients!"
-        width="300px"
-        height="450px" /> */}

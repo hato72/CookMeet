@@ -38,7 +38,7 @@ const Page = () => {
             <div className="basis-1/2 pt-16 pl-16 pr-5">
                 <hgroup>
                     <h2 className="text-4xl text-green-700 font-bold">Meet a new meal.</h2>
-                    <p className="mt-10 text-green-700">おかえりなさい。ログインしてください。</p>
+                    <p className="mt-10 text-green-700">アカウントを作成してください。</p>
                 </hgroup>
                 <form action="POST" onSubmit={onSubmit} className="mt-10">
                     <div>
@@ -69,12 +69,7 @@ const Page = () => {
                         <div className="mt-16">
                             <menu className="flex gap-x-8">
                                 <li>
-                                    <GreenQuadButton type="submit">ログイン</GreenQuadButton>
-                                </li>
-                                <li>
-                                    <Link href={'/signin'}>
-                                        <WhiteQuadButton>新規登録</WhiteQuadButton>
-                                    </Link>
+                                    <GreenQuadButton type="submit">新規登録</GreenQuadButton>
                                 </li>
                             </menu>
                         </div>
