@@ -21,7 +21,7 @@ const Page = () => {
         password: string;
     };
 
-    type ValidationCheck = () => boolean;
+    type ValidationCheck = (targetInput?: string) => boolean;
 
     const [signinFormInput, setSigninFormInput] = React.useState<SigninFormInput>({
         name: '',
@@ -42,6 +42,11 @@ const Page = () => {
             ...signinFormInput,
             name: e.target.value
         });
+
+        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
+        if (nameError.error) {
+            validateName(e.target.value);
+        }
     };
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +54,11 @@ const Page = () => {
             ...signinFormInput,
             email: e.target.value
         });
+
+        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
+        if (emailError.error) {
+            validateEmail(e.target.value);
+        }
     };
 
     const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,27 +66,47 @@ const Page = () => {
             ...signinFormInput,
             password: e.target.value
         });
+
+        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
+        if (passwordError.error) {
+            validatePassword(e.target.value);
+        }
     };
 
     const handleChangePasswordConfirmation = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPasswordConfirmation(e.target.value);
+
+        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
+        if (passwordConfirmationError.error) {
+            validatePasswordConfirmation(e.target.value);
+        }
     };
 
-    const validateEmail: ValidationCheck = () => {
-        if (signinFormInput.email === '') {
+    const validateName: ValidationCheck = (name: string = signinFormInput.name) => {
+        if (name === '') {
+            setNameError({...nameError, error: true, message: 'ユーザー名を入力してください'});
+            return true;
+        }
+        setNameError({...nameError, error: false, message: ''});
+        return false;
+    };
+
+    const validateEmail: ValidationCheck = (email: string = signinFormInput.email) => {
+        if (email === '') {
             setEmailError({ ...emailError, error: true, message: 'メールアドレスを入力してください' });
             return true;
         }
 
-        if (!signinFormInput.email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
+        if (!email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
             setEmailError({ ...emailError, error: true, message: 'メールアドレスの形式が正しくありません' });
             return true;
         }
 
+        setEmailError({...emailError, error: false, message: ''});
         return false;
     };
 
-    const validatePassword: ValidationCheck = () => {
+    const validatePassword: ValidationCheck = (password: string = signinFormInput.password) => {
         if (signinFormInput.password === '') {
             setPasswordError({ ...passwordError, error: true, message: 'パスワードを入力してください' });
             return true;
@@ -87,22 +117,33 @@ const Page = () => {
             return true;
         }
 
-        if (signinFormInput.password !== passwordConfirmation) {
-            setPasswordConfirmationError({ ...passwordConfirmationError, error: true, message: 'パスワードが一致しません' });
+        setPasswordError({...passwordError, error: false, message: ''});
+        return false;
+    };
+
+    const validatePasswordConfirmation: ValidationCheck = (password: string = passwordConfirmation) => {
+        if (password === '') {
+            setPasswordConfirmationError({...passwordConfirmationError, error: true, message: '確認用のパスワードを入力してください'});
             return true;
         }
+        if (signinFormInput.password !== password) {
+            setPasswordConfirmationError({...passwordConfirmationError, error: true, message: 'パスワードが一致しません'})
+            return true;
+        }
+        setPasswordConfirmationError({...passwordConfirmationError, error: false, message: ''})
         return false;
-    }
+    };
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // バリデーション
+        const isNameError = validateName();
         const isEmailError = validateEmail();
         const isPasswordError = validatePassword();
+        const isPasswordConfirmationError = validatePasswordConfirmation();
 
-        if (isEmailError || isPasswordError) {
-            e.preventDefault();
+        if (isNameError || isEmailError || isPasswordError || isPasswordConfirmationError) {
             console.log('バリデーションエラー');
             return;
         }
@@ -111,7 +152,7 @@ const Page = () => {
         try {
 
             // ログイン処理が成功した場合、トップページにリダイレクト
-            //router.replace('/');
+            router.replace('/');
 
         } catch (err) {
             console.log(err);
