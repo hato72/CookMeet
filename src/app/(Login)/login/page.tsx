@@ -4,6 +4,8 @@ import GreenQuadButton from "@/components/ui/buttun/GreenQuadButtun";
 import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 import PasswordInput from "@/components/ui/form/PasswordInput";
 import TextInput from "@/components/ui/form/TextInput";
+import { userAtom } from "@/states/store/authAtom";
+import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -19,6 +21,14 @@ const Page = () => {
     const [emailError, setEmailError] = React.useState<FormError>({ error: false, message: '' });
     const [passwordError, setPasswordError] = React.useState<FormError>({ error: false, message: '' });
     const [serverError, setServerError] = React.useState<FormError>({ error: false, message: '' })
+    const [user, setUser] = useAtom(userAtom);
+
+    const Login = async () => {
+        console.log(user);
+        setUser(true);
+        console.log(user);
+        console.log("ログイン");
+    };
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -29,7 +39,6 @@ const Page = () => {
     };
 
     const onSubmit = () => {
-        // 以下ログイン処理
     };
 
 
@@ -68,7 +77,7 @@ const Page = () => {
                         <div className="mt-16">
                             <menu className="flex gap-x-8">
                                 <li>
-                                    <GreenQuadButton type="submit">ログイン</GreenQuadButton>
+                                    <GreenQuadButton type="submit" href="./" onClick={() => Login()}>ログイン</GreenQuadButton>
                                 </li>
                                 <li>
                                     <Link href={'./createaccount'}>
