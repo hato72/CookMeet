@@ -8,7 +8,7 @@
     'results': string[]・・・心理テストの結果（いい変数名が思いつかないので、合わせます）
  }
 */
-export const GET = async (request: Request) => {
+export const GET = async () => {
     return Response.json(
         {
             "recipes": [{

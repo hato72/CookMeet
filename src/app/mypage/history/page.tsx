@@ -12,7 +12,8 @@ export default function MyPage() {
                 description="Take your boring salads up a knotch. This recipe is perfect for lunch
           and only contains 5 ingredients!"
                 width="300px"
-                height="450px" />
+                height="450px"
+                url="https://recipe.rakuten.co.jp/recipe/1900015892/" />
         </>
     );
 }
