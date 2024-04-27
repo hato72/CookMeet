@@ -57,11 +57,11 @@ const Page = () => {
                             </fieldset>
                             <fieldset className="mt-5">
                                 <PasswordInput
-                                helperText={passwordError.message}
-                                error={passwordError.error}
-                                value={password}
-                                onChange={handleChangePassword}
-                                placeholder="パスワードを入力してください"
+                                    helperText={passwordError.message}
+                                    error={passwordError.error}
+                                    value={password}
+                                    onChange={handleChangePassword}
+                                    placeholder="パスワードを入力してください"
                                 />
                             </fieldset>
                         </div>
@@ -71,7 +71,7 @@ const Page = () => {
                                     <GreenQuadButton type="submit">ログイン</GreenQuadButton>
                                 </li>
                                 <li>
-                                    <Link href={'/signin'}>
+                                    <Link href={'./createaccount'}>
                                         <WhiteQuadButton>新規登録</WhiteQuadButton>
                                     </Link>
                                 </li>
