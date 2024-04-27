@@ -84,10 +84,10 @@ const Page = () => {
 
     const validateName: ValidationCheck = (name: string = signinFormInput.name) => {
         if (name === '') {
-            setNameError({...nameError, error: true, message: 'ユーザー名を入力してください'});
+            setNameError({ ...nameError, error: true, message: 'ユーザー名を入力してください' });
             return true;
         }
-        setNameError({...nameError, error: false, message: ''});
+        setNameError({ ...nameError, error: false, message: '' });
         return false;
     };
 
@@ -102,7 +102,7 @@ const Page = () => {
             return true;
         }
 
-        setEmailError({...emailError, error: false, message: ''});
+        setEmailError({ ...emailError, error: false, message: '' });
         return false;
     };
 
@@ -117,20 +117,20 @@ const Page = () => {
             return true;
         }
 
-        setPasswordError({...passwordError, error: false, message: ''});
+        setPasswordError({ ...passwordError, error: false, message: '' });
         return false;
     };
 
     const validatePasswordConfirmation: ValidationCheck = (password: string = passwordConfirmation) => {
         if (password === '') {
-            setPasswordConfirmationError({...passwordConfirmationError, error: true, message: '確認用のパスワードを入力してください'});
+            setPasswordConfirmationError({ ...passwordConfirmationError, error: true, message: '確認用のパスワードを入力してください' });
             return true;
         }
         if (signinFormInput.password !== password) {
-            setPasswordConfirmationError({...passwordConfirmationError, error: true, message: 'パスワードが一致しません'})
+            setPasswordConfirmationError({ ...passwordConfirmationError, error: true, message: 'パスワードが一致しません' })
             return true;
         }
-        setPasswordConfirmationError({...passwordConfirmationError, error: false, message: ''})
+        setPasswordConfirmationError({ ...passwordConfirmationError, error: false, message: '' })
         return false;
     };
 
