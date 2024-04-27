@@ -2,12 +2,14 @@
 
 import { GET } from "@/app/api/mocks/recipes/route";
 import RecipeCard from "@/components/base/meal/meal";
+import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
+import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
 import { Grid } from "@mui/material";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
 const Result: React.FC = () => {
-    /* アンケートの結果が入っている. answersはnumber型の配列 */
     const [recipes, setRecipes] = useState([{
         id: 0,
         title: '',
@@ -18,6 +20,16 @@ const Result: React.FC = () => {
         rank: 0
     }
     ]);
+    const [currentMeal, setCurrentMeal] = useState(0);
+
+    const arrowClicked = () => {
+
+        if (currentMeal + 1 < 3) {
+            setCurrentMeal(currentMeal + 1);
+        } else if (currentMeal == 2) {
+            setCurrentMeal(0);
+        }
+    };
 
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -39,22 +51,25 @@ const Result: React.FC = () => {
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">生成結果</h1>
             </div>
             <div className="text-center">
-                <Grid container style={{
-                    margin: 'auto',
-                    width: '50%'
-                }}>
-                    {recipes.map(recipe => (
-                        <RecipeCard
-                            img={recipe.image_url}
-                            title={recipe.title}
-                            description={recipe.description}
-                            width="300px"
-                            height="450px"
-                            url={recipe.url} />
+                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    <h1 className="text-3xl font-bold tracking-tight text-orange-500">おすすめ度{recipes[currentMeal].rank}位</h1>
+                </div>
+                <Grid container justifyContent="center">
 
-                    ))}
+                    <RecipeCard
+                        img={recipes[currentMeal].image_url}
+                        title={recipes[currentMeal].title}
+                        description={recipes[currentMeal].description}
+                        width="350px"
+                        height="450px"
+                        url={recipes[currentMeal].url} />
                 </Grid>
-            </div>
+
+                <GreenRoundButton>これを作る！</GreenRoundButton>
+                <br></br><br></br>
+                <WhiteRoundButton onClick={() => arrowClicked()}>←おすすめ度{recipes[currentMeal].rank - 1 == 0 ? 3 : recipes[currentMeal].rank - 1}位</WhiteRoundButton>
+                <BlackRoundButton onClick={() => arrowClicked()}>おすすめ度{recipes[currentMeal].rank + 1 == 4 ? 1 : recipes[currentMeal].rank + 1}位→</BlackRoundButton>
+            </div >
         </>
     );
 }
