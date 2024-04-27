@@ -2,6 +2,7 @@
 
 import GreenQuadButton from "@/components/ui/buttun/GreenQuadButtun";
 import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
+import PasswordInput from "@/components/ui/form/PasswordInput";
 import TextInput from "@/components/ui/form/TextInput";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,14 +56,12 @@ const Page = () => {
                                 />
                             </fieldset>
                             <fieldset className="mt-5">
-                                <TextInput
-                                    label="パスワード"
-                                    type="password"
-                                    helperText={passwordError.message}
-                                    error={passwordError.error}
-                                    value={password}
-                                    placeholder=""
-                                    onChange={handleChangePassword}
+                                <PasswordInput
+                                helperText={passwordError.message}
+                                error={passwordError.error}
+                                value={password}
+                                onChange={handleChangePassword}
+                                placeholder="パスワードを入力してください"
                                 />
                             </fieldset>
                         </div>
