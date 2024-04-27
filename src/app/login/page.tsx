@@ -4,8 +4,11 @@ import GreenQuadButton from "@/components/ui/buttun/GreenQuadButtun";
 import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 import PasswordInput from "@/components/ui/form/PasswordInput";
 import TextInput from "@/components/ui/form/TextInput";
+import { userAtom } from "@/states/store/authAtom";
+import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type FormError = {
@@ -19,6 +22,16 @@ const Page = () => {
     const [emailError, setEmailError] = React.useState<FormError>({ error: false, message: '' });
     const [passwordError, setPasswordError] = React.useState<FormError>({ error: false, message: '' });
     const [serverError, setServerError] = React.useState<FormError>({ error: false, message: '' })
+    const [user, setUser] = useAtom(userAtom);
+
+    const Router = useRouter();
+
+    const Login = async () => {
+        console.log(user);
+        setUser(true);
+        console.log(user);
+        console.log("ログイン");
+    };
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -28,11 +41,11 @@ const Page = () => {
         setPassword(e.target.value);
     };
 
-    const onSubmit = () => {
-        // 以下ログイン処理
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        Login();
+        Router.replace("/");
     };
-
-
 
     return (
         <div className="flex">
@@ -41,7 +54,7 @@ const Page = () => {
                     <h2 className="text-4xl text-green-700 font-bold">Meet a new meal.</h2>
                     <p className="mt-10 text-green-700">おかえりなさい。ログインしてください。</p>
                 </hgroup>
-                <form action="POST" onSubmit={onSubmit} className="mt-10">
+                <form onSubmit={onSubmit} className="mt-10">
                     <div>
                         <div>
                             <fieldset>

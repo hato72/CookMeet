@@ -5,23 +5,11 @@ import { useAtom } from 'jotai';
 import { userAtom } from '../states/store/authAtom';
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { authenticate, getName } from "@/states/utils/auth";
+import { useEffect } from "react";
 
 export default function Home() {
-  const [userName, setUserName] = useAtom(userAtom);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const email = "user1@example.com";
-    const password = "password1";
-    const isLoggedIn = authenticate(email, password);
-    setIsLoggedIn(isLoggedIn);
-    const userName = getName(email, password);
-    if (isLoggedIn) {
-      setUserName(userName);
-    }
-  }, [setUserName]);
+  const [user, setUser] = useAtom(userAtom);
+  console.log(user);
 
   return (
     <>
@@ -36,12 +24,12 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       </div>
       <div className="text-center">
-        <Link href="/cook/question">
-          <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton></Link>
+        {user ? (
+          <Link href="/cook/question">
+            <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
+          </Link>
+        ) : (<p>ログアウト状態</p>)}
       </div>
-      <p className="mt-2 text-lg text-gray-600 text-center">
-        {isLoggedIn ? `${userName}` : 'No user logged in'}
-      </p>
     </>
   );
 }
