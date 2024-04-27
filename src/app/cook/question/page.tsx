@@ -86,9 +86,6 @@ export default function Questions() {
     return (
         <div className={styles.App}>
 
-            {/* 3. Show results or show the question game  */}
-
-            /* 5. Question Card  */
             {showResults ? (
                 <div>
                     <Link href="/cook/result">

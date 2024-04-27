@@ -35,7 +35,6 @@ const Result: React.FC = () => {
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
-                /* 赤波線出ているがこれで問題ない */
                 const response = await GET(); // Call the GET function
                 const data = await response.json(); // Extract JSON data from the response
                 setRecipes(data.recipes); // Set the fetched recipes in the state
