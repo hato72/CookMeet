@@ -9,13 +9,12 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import CustomButton from '@/components/ui/buttun/GreenQuadButtun';
 import GreenQuadButton from '@/components/ui/buttun/GreenQuadButtun';
 import Link from 'next/link';
+import { useAtom } from 'jotai';
+import { userAtom } from '@/states/store/authAtom';
 
 const pages = ['利用規約', 'ニュース', '私たちについて'];
 
@@ -38,28 +37,29 @@ function ResponsiveAppBar() {
         setAnchorElUser(null);
     };
 
+    const [user, setUser] = useAtom(userAtom);
+
     return (
         <AppBar position="static" sx={{ backgroundColor: 'white' }} >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-
-                    <Typography
-                        variant="h4"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'serif',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'green',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        CookMeet
-                    </Typography>
+                    <Link href="/">
+                        <Typography
+                            variant="h4"
+                            noWrap
+                            sx={{
+                                mr: 2,
+                                display: { xs: 'none', md: 'flex' },
+                                fontFamily: 'serif',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: 'green',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            CookMeet
+                        </Typography>
+                    </Link>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: 'black' }}>
                         <IconButton
@@ -97,25 +97,24 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-
-                    <Typography
-                        variant="h4"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'serif',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'green',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        CookMeet
-                    </Typography>
+                    <Link href="/">
+                        <Typography
+                            variant="h4"
+                            noWrap
+                            sx={{
+                                mr: 2,
+                                display: { xs: 'flex', md: 'none' },
+                                flexGrow: 1,
+                                fontFamily: 'serif',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: 'green',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            CookMeet
+                        </Typography>
+                    </Link>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, columnGap: { xs: null, md: 2 }, justifyContent: { xs: null, md: 'right' }, mr: { xs: null, md: 4 } }}>
                         {pages.map((page) => (
                             <Button
@@ -127,9 +126,13 @@ function ResponsiveAppBar() {
                             </Button>
                         ))}
                     </Box>
-                    <Link href="/login">
-                        <GreenQuadButton>ログイン</GreenQuadButton>
-                    </ Link>
+                    <div>
+                        {user ? (<p></p>) : (
+                            <Link href="/login">
+                                <GreenQuadButton>ログイン</GreenQuadButton>
+                            </ Link>
+                        )}
+                    </div>
                 </Toolbar>
             </Container>
         </AppBar >

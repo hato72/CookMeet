@@ -24,11 +24,11 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       </div>
       <div className="text-center">
-        {user == true && (
+        {user ? (
           <Link href="/cook/question">
             <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
           </Link>
-        )}
+        ) : (<p>ログアウト状態</p>)}
       </div>
     </>
   );
