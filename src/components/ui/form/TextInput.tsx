@@ -27,15 +27,15 @@ type TextInputProps = {
 const TextInput: React.FC<TextInputProps> = ({ label, helperText, placeholder, value, type = 'text', error, onChange }) => {
     return (
         <TextField
-        variant="outlined"
-        label={label}
-        helperText={error ? helperText : ''}
-        error={error}
-        placeholder={placeholder}
-        value={value}
-        type={type}
-        onChange={onChange}
-        fullWidth
+            variant="outlined"
+            label={label}
+            helperText={error ? helperText : ''}
+            error={error}
+            placeholder={placeholder}
+            value={value}
+            type={type}
+            onChange={onChange}
+            fullWidth
         />
     );
 };

@@ -2,7 +2,6 @@
 
 import { GET } from "@/app/api/mocks/recipes/route";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
-import Image from "next/image";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -22,15 +21,6 @@ const Result: React.FC = () => {
     }
     ]);
     const [currentMeal, setCurrentMeal] = useState(0);
-
-    const arrowClicked = () => {
-
-        if (currentMeal + 1 < 3) {
-            setCurrentMeal(currentMeal + 1);
-        } else if (currentMeal == 2) {
-            setCurrentMeal(0);
-        }
-    };
 
     useEffect(() => {
         const fetchRecipes = async () => {

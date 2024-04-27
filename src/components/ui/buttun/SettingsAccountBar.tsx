@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import Person from '@mui/icons-material/Person';
 import { Person2Rounded, Person3 } from '@mui/icons-material';
 
-export default function SettingsAccountBar() {
+function SettingsAccountBar() {
     return (
         <Stack direction="row" spacing={2}>
             <Button variant="outlined" startIcon={<Person />} style={{ color: 'black', borderColor: 'black' }} sx={{
@@ -18,3 +18,5 @@ export default function SettingsAccountBar() {
         </Stack>
     );
 }
+
+export default SettingsAccountBar;
