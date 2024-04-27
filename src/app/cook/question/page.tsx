@@ -107,9 +107,10 @@ export default function Questions() {
                                 <li
                                     className={styles.list}
                                     key={option.id}
-                                    onClick={() => optionClicked(option.id)}
                                 >
-                                    {option.text}
+                                    <button className={styles.answer_button} onClick={() => optionClicked(option.id)}>
+                                        {option.text}
+                                    </button>
                                 </li>
                             );
                         })}
