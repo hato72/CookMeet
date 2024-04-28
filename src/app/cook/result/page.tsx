@@ -1,6 +1,5 @@
 "use client"
 
-import { GET } from "@/app/api/mocks/recipes/route";
 import RecipeCard from "@/components/base/meal/Meal";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
@@ -25,8 +24,6 @@ const Result: React.FC = () => {
     const [currentMeal, setCurrentMeal] = useState(0);
     const [meal, setMeal] = useAtom(mealAtom);
 
-    console.log(meal);
-
     const arrowClicked = () => {
 
         if (currentMeal + 1 < 3) {
@@ -36,19 +33,19 @@ const Result: React.FC = () => {
         }
     };
 
-    useEffect(() => {
-        const fetchRecipes = async () => {
-            try {
-                /* 赤波線出ているがこれで問題ない */
-                const response = await GET(); // Call the GET function
-                const data = await response.json(); // Extract JSON data from the response
-                setRecipes(data.recipes); // Set the fetched recipes in the state
-            } catch (error) {
-                console.error('Error fetching recipes:', error);
-            }
-        };
-        fetchRecipes();
-    }, []);
+    // useEffect(() => {
+    //     const fetchRecipes = async () => {
+    //         try {
+    //             /* 赤波線出ているがこれで問題ない */
+    //             const response = await GET(); // Call the GET function
+    //             const data = await response.json(); // Extract JSON data from the response
+    //             setRecipes(data.recipes); // Set the fetched recipes in the state
+    //         } catch (error) {
+    //             console.error('Error fetching recipes:', error);
+    //         }
+    //     };
+    //     fetchRecipes();
+    // }, []);
 
     return (
         <>
