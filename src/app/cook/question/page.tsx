@@ -58,7 +58,7 @@ export default function Questions() {
         },
     ];
 
-    const snetences = [
+    const sentences = [
         ['朝食', '昼食', '夕食', 'おやつ'],
         ['時短', '凝る'],
         ['今日はイタリアンが食べたい気分だな', '今日は中華が食べたい気分だな', '今は麺類が食べたい気分だ', '今は丼とかのご飯系が食べたい', 'とくに今日これが食べたいってものはないけど、おいしいものが食べたいな'],
@@ -73,7 +73,7 @@ export default function Questions() {
 
     const optionClicked = (id: number) => {
         const newAnswers = [...answers];
-        newAnswers[currentQuestion] = id;
+        newAnswers[currentQuestion] = sentences[currentQuestion][id];
         setAnswers(newAnswers);
 
         console.log(newAnswers);
