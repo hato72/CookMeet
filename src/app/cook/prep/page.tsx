@@ -1,6 +1,5 @@
 "use client"
 
-import { GET } from "@/app/api/mocks/recipes/route";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
 import React, { useEffect } from "react";
@@ -22,18 +21,18 @@ const Result: React.FC = () => {
     ]);
     const [currentMeal, setCurrentMeal] = useState(0);
 
-    useEffect(() => {
-        const fetchRecipes = async () => {
-            try {
-                const response = await GET(); // Call the GET function
-                const data = await response.json(); // Extract JSON data from the response
-                setRecipes(data.recipes); // Set the fetched recipes in the state
-            } catch (error) {
-                console.error('Error fetching recipes:', error);
-            }
-        };
-        fetchRecipes();
-    }, []);
+    // useEffect(() => {
+    //     const fetchRecipes = async () => {
+    //         try {
+    //             const response = await GET(); // Call the GET function
+    //             const data = await response.json(); // Extract JSON data from the response
+    //             setRecipes(data.recipes); // Set the fetched recipes in the state
+    //         } catch (error) {
+    //             console.error('Error fetching recipes:', error);
+    //         }
+    //     };
+    //     fetchRecipes();
+    // }, []);
 
     return (
         <>
