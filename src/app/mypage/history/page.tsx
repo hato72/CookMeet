@@ -1,4 +1,4 @@
-import RecipeCard from "@/components/base/meal/meal";
+import RecipeCard from "@/components/base/meal/Meal";
 
 export default function MyPage() {
     return (

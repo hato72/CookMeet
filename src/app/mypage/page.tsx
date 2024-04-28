@@ -1,5 +1,4 @@
-import SettingsAccountBar from "@/components/ui/buttun/SettingsAccountBar";
-import SettingsHistoryBar from "@/components/ui/buttun/SettingsHistoryBar";
+import SocialMediaButton from "@/components/ui/buttun/SocialMediaButton";
 import Link from "next/link";
 
 export default function MyPage() {
@@ -9,10 +8,10 @@ export default function MyPage() {
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">マイページ</h1>
             </div>
             <Link href="/mypage/settings">
-                <SettingsAccountBar />
+                <SocialMediaButton>アカウント設定</SocialMediaButton>
             </Link>
             <Link href="/mypage/history">
-                <SettingsHistoryBar />
+                <SocialMediaButton>調理履歴</SocialMediaButton>
             </Link>
         </>
     );
