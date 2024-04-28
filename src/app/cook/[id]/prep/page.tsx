@@ -7,28 +7,25 @@ import { useState } from "react";
 import CheckList from "@/components/base/prep/CheckList";
 import { Grid } from "@mui/material";
 import Link from "next/link";
+import { useAtom } from "jotai";
+import { ingredientsAtom } from "@/states/store/ingredientsAtom";
+import { stepsAtom } from "@/states/store/stepAtom";
 
 const Result  = ({params}: {params: {id: number}}) => {
     const { id } = params;
-    const [recipes, setRecipes] = useState([{
-        id: 0,
-        title: '',
-        url: '',
-        description: '',
-        image_url: '',
-        category_id: '',
-        rank: 0
-    }
-    ]);
+    
     const [currentMeal, setCurrentMeal] = useState(0);
+    const [ingredients, setIngredients] = useAtom(ingredientsAtom);
+    const [steps, setSteps] = useAtom(stepsAtom);
 
      useEffect(() => {
          const fetchRecipes = async () => {
              try {
                  const response = await fetch(`https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/${id}/details`); // Call the GET function
                  const data = await response.json(); // Extract JSON data from the response
-                 setRecipes(data.recipes); // Set the fetched recipes in the state
-             } catch (error) {
+                 setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
+                 setSteps([...steps, data['steps']]);
+                } catch (error) {
                  console.error('Error fetching recipes:', error);
              }
          };
@@ -41,13 +38,12 @@ const Result  = ({params}: {params: {id: number}}) => {
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">準備するもの</h1>
             </div>
             <div className="text-center">
-                <h1 className="text-1xl font-bol text-gray-900">{recipes[currentMeal].title}</h1>
+                <h1 className="text-1xl font-bol text-gray-900"></h1>
                 <Grid container
                     direction="row"
                     justifyContent="center"
                     alignItems="center">
                     <CheckList />
-                    <img src={recipes[currentMeal].image_url} alt="料理のイメージ画像" width={200} height={200} />
                 </Grid>
 
                 <Link href="/cook/result">
