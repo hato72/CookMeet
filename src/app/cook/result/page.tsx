@@ -1,7 +1,7 @@
 "use client"
 
 import { GET } from "@/app/api/mocks/recipes/route";
-import RecipeCard from "@/components/base/meal/meal";
+import RecipeCard from "@/components/base/meal/Meal";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
