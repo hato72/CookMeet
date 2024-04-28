@@ -43,8 +43,8 @@ const Result: React.FC = () => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        "texts": ["いやなことがあった", "イライラしている", "痩せたい"],
-                        "conditions": ["簡単", "おいしい", "安い"]
+                        "texts": [meal[2], meal[3], meal[4]],
+                        "conditions": [meal[0], meal[1]]
                     })
                 }); // Call the GET function
                 const data = await response.json(); // Extract JSON data from the response
@@ -55,7 +55,7 @@ const Result: React.FC = () => {
         };
         fetchRecipes();
     }, []);
-    
+
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
