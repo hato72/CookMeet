@@ -33,20 +33,29 @@ const Result: React.FC = () => {
         }
     };
 
-    // useEffect(() => {
-    //     const fetchRecipes = async () => {
-    //         try {
-    //             /* 赤波線出ているがこれで問題ない */
-    //             const response = await GET(); // Call the GET function
-    //             const data = await response.json(); // Extract JSON data from the response
-    //             setRecipes(data.recipes); // Set the fetched recipes in the state
-    //         } catch (error) {
-    //             console.error('Error fetching recipes:', error);
-    //         }
-    //     };
-    //     fetchRecipes();
-    // }, []);
-
+    useEffect(() => {
+        const fetchRecipes = async () => {
+            try {
+                /* 赤波線出ているがこれで問題ない */
+                const response = await fetch('https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/recipes/recommend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        "texts": ["いやなことがあった", "イライラしている", "痩せたい"],
+                        "conditions": ["簡単", "おいしい", "安い"]
+                    })
+                }); // Call the GET function
+                const data = await response.json(); // Extract JSON data from the response
+                setRecipes(data['recipes']); // Set the fetched recipes in the state
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+            }
+        };
+        fetchRecipes();
+    }, []);
+    
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
