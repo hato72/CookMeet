@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
+import { mealAtom } from "@/states/store/mealAtom";
+import { useAtom } from "jotai";
 
 export default function Questions() {
 
@@ -67,6 +69,7 @@ export default function Questions() {
     const [showResults, setShowResults] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState(Array(questions.length).fill(null));
+    const [meal, setMeal] = useAtom(mealAtom);
 
     const optionClicked = (id: number) => {
         const newAnswers = [...answers];
@@ -81,7 +84,9 @@ export default function Questions() {
         } else {
             setShowResults(true);
         }
+        setMeal(newAnswers);
     };
+    console.log(meal);
 
     return (
         <div className={styles.App}>

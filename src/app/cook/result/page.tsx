@@ -5,7 +5,9 @@ import RecipeCard from "@/components/base/meal/Meal";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
+import { mealAtom } from "@/states/store/mealAtom";
 import { Grid } from "@mui/material";
+import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
@@ -21,6 +23,9 @@ const Result: React.FC = () => {
     }
     ]);
     const [currentMeal, setCurrentMeal] = useState(0);
+    const [meal, setMeal] = useAtom(mealAtom);
+
+    console.log(meal);
 
     const arrowClicked = () => {
 
