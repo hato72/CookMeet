@@ -8,7 +8,8 @@ import CheckList from "@/components/base/prep/CheckList";
 import { Grid } from "@mui/material";
 import Link from "next/link";
 
-const Result: React.FC = () => {
+const Result  = ({params}: {params: {id: number}}) => {
+    const { id } = params;
     const [recipes, setRecipes] = useState([{
         id: 0,
         title: '',
@@ -21,18 +22,18 @@ const Result: React.FC = () => {
     ]);
     const [currentMeal, setCurrentMeal] = useState(0);
 
-    // useEffect(() => {
-    //     const fetchRecipes = async () => {
-    //         try {
-    //             const response = await GET(); // Call the GET function
-    //             const data = await response.json(); // Extract JSON data from the response
-    //             setRecipes(data.recipes); // Set the fetched recipes in the state
-    //         } catch (error) {
-    //             console.error('Error fetching recipes:', error);
-    //         }
-    //     };
-    //     fetchRecipes();
-    // }, []);
+     useEffect(() => {
+         const fetchRecipes = async () => {
+             try {
+                 const response = await fetch(`https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/${id}/details`); // Call the GET function
+                 const data = await response.json(); // Extract JSON data from the response
+                 setRecipes(data.recipes); // Set the fetched recipes in the state
+             } catch (error) {
+                 console.error('Error fetching recipes:', error);
+             }
+         };
+         fetchRecipes();
+     }, []);
 
     return (
         <>
