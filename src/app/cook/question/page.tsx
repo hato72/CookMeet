@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
@@ -95,9 +95,13 @@ export default function Questions() {
                 </div>) : (
                 <div className={styles.questionCard}>
                     {/* Current Question  */}
-                    <h2>
-                        質問: {currentQuestion + 1} / {questions.length}
-                    </h2>
+                    <ul className={styles.questionCounter_list}>
+                        {questions.map((_, index) => (
+                            <li key={index} className={styles.questionCounter_item}>
+                                <div className={styles.questionCounter}></div>
+                            </li>
+                        ))}
+                    </ul>
                     <h3 className={styles.question}>{questions[currentQuestion].text}</h3>
 
                     {/* List of possible answers  */}
