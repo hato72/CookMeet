@@ -1,8 +1,7 @@
 'use client';
 
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
-import SettingsAccountBar from "@/components/ui/buttun/SettingsAccountBar";
-import SettingsHistoryBar from "@/components/ui/buttun/SettingsHistoryBar";
+import SocialMediaButton from "@/components/ui/buttun/SocialMediaButton";
 import TextInput from "@/components/ui/form/TextInput";
 import { userAtom } from "@/states/store/authAtom";
 import { CloudUpload, FileCopy } from "@mui/icons-material";
@@ -53,16 +52,16 @@ export default function MyPage() {
                         <Button role={undefined} component="label" startIcon={<CloudUpload />} color="success">
                             アイコン変更
                             <input type="file" name="" id="" onChange={handleChangeIconFile} style={{
-                            clip: 'rect(0 0 0 0)',
-                            clipPath: 'inset(50%)',
-                            height: 1,
-                            overflow: 'hidden',
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            whiteSpace: 'nowrap',
-                            width: 1,
-                        }} /></Button>
+                                clip: 'rect(0 0 0 0)',
+                                clipPath: 'inset(50%)',
+                                height: 1,
+                                overflow: 'hidden',
+                                position: 'absolute',
+                                bottom: 0,
+                                left: 0,
+                                whiteSpace: 'nowrap',
+                                width: 1,
+                            }} /></Button>
                     </fieldset>
                     <div className="grow pr-10">
                         <fieldset>
@@ -76,7 +75,7 @@ export default function MyPage() {
                             />
                         </fieldset>
                         <Link href="" className="inline-block mt-10">
-                            <SettingsAccountBar />
+                            <SocialMediaButton>アカウント設定</SocialMediaButton>
                         </Link>
                     </div>
                 </form>
