@@ -35,6 +35,7 @@ const Result  = ({params}: {params: {id: number}}) => {
 
     const handleClick = () => {
         setOpen(!open);
+        
     };
 
     return (
