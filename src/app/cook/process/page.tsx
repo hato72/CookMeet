@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useAtom } from "jotai";
 import { ingredientsAtom } from "@/states/store/ingredientsAtom";
 import { stepsAtom } from "@/states/store/stepAtom";
+import axios from 'axios';
 
 const Result  = ({params}: {params: {id: number}}) => {
     const { id } = params;
@@ -20,17 +21,30 @@ const Result  = ({params}: {params: {id: number}}) => {
     const [open, setOpen] = React.useState(true);
 
      useEffect(() => {
-         const fetchRecipes = async () => {
-             try {
-                 const response = await fetch(`https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/${id}/details`); // Call the GET function
-                 const data = await response.json(); // Extract JSON data from the response
-                 setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
-                 setSteps([...steps, data['steps']]);
-                } catch (error) {
-                 console.error('Error fetching recipes:', error);
-             }
-         };
-         fetchRecipes();
+        //  const fetchRecipes = async () => {
+        //      try {
+        //          const response = await fetch(`https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/${id}/details`); // Call the GET function
+        //          const data = await response.json(); // Extract JSON data from the response
+        //          setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
+        //          setSteps([...steps, data['steps']]);
+        //         } catch (error) {
+        //          console.error('Error fetching recipes:', error);
+        //      }
+        //  };
+        //  fetchRecipes();
+        const fetchRecipes = async () => {
+            try {
+                // ローカルサーバーからデータを取得
+                const cuisineResponse = await axios.get(`http://localhost:8080/cuisines/${id}`);
+                const data = cuisineResponse.data;
+
+                // 取得したデータから材料と作り方をセット
+                setIngredients([...ingredients, data.ingredients]);
+                setSteps([...steps, data.steps]);
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+            }
+        };
      }, []);
 
     const handleClick = () => {
