@@ -82,8 +82,7 @@ const Result: React.FC = () => {
                         description="aaa"
                         width="350px"
                         height="450px"
-                        url="https://recipe.rakuten.co.jp/recipe/1570003792/"
-                        //url={recipes[currentMeal].url} 
+                        url="https://recipe.rakuten.co.jp/recipe/1570003792/" 
                     />
                 </Grid>
 
