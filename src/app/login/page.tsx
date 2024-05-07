@@ -29,7 +29,7 @@ const Page = () => {
 
     const Login = async () => {
         // console.log(user);
-        // setUser(true);
+        //setUser(true);
         // console.log(user);
         // console.log("ログイン");
         try {
@@ -40,9 +40,10 @@ const Page = () => {
     
             // ログイン成功時の処理
             const { token, user } = response.data; // 仮のレスポンスデータ構造です
-            setUser(user);
+            setUser(true);
+            //setUser(user);
             localStorage.setItem('token', token); // トークンをローカルストレージに保存
-            Router.replace("/cook/question");
+            //Router.replace("/cook/question");
         } catch (error) {
             console.error(error);
             // ログイン失敗時の処理
@@ -61,7 +62,7 @@ const Page = () => {
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Login();
-        //Router.replace("/");
+        Router.replace("/");
     };
 
     return (
