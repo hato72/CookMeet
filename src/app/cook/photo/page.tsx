@@ -26,7 +26,7 @@ const UploadPage: React.FC = () => {
             formData.append('icon', selectedFile);
 
             // コメントを追加する場合は以下のように FormData に追加
-            formData.append('comment', comment);
+            //formData.append('comment', comment);
 
             // サーバーに POST リクエストを送信
             await axios.post('http://localhost:8080/cuisines', formData, {
