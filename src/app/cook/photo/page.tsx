@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
+import BlackRoundButton from '@/components/ui/buttun/BlackRoundButton';
 
 const UploadPage: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -62,13 +64,10 @@ const UploadPage: React.FC = () => {
                         value={comment}
                         onChange={handleCommentChange}
                     />
-                    <button type="submit" className="submit-button">完了</button>
-                    {/* 調理記録ページへ 
-
-                        調理履歴を左側に
-                        右側にSNSでシェアボタンとマイページへボタン
-
-                    */}
+                    <Link href={'./cook/repo'}>
+                        <BlackRoundButton type="submit" className="submit-button">完了</BlackRoundButton>
+                    </Link>
+                    {/* 調理記録ページへ */}
                 </div>
             </form>
         </div>
