@@ -63,6 +63,12 @@ const UploadPage: React.FC = () => {
                         onChange={handleCommentChange}
                     />
                     <button type="submit" className="submit-button">完了</button>
+                    {/* 調理記録ページへ 
+
+                        調理履歴を左側に
+                        右側にSNSでシェアボタンとマイページへボタン
+
+                    */}
                 </div>
             </form>
         </div>
