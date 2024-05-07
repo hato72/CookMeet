@@ -33,8 +33,7 @@ const Page = () => {
         // console.log(user);
         // console.log("ログイン");
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
-                name,
+            const response = await axios.post(`http://localhost:8080/login`, {
                 email,
                 password
             });
@@ -43,7 +42,7 @@ const Page = () => {
             const { token, user } = response.data; // 仮のレスポンスデータ構造です
             setUser(user);
             localStorage.setItem('token', token); // トークンをローカルストレージに保存
-            Router.replace("/");
+            Router.replace("/cook/question");
         } catch (error) {
             console.error(error);
             // ログイン失敗時の処理
@@ -62,7 +61,7 @@ const Page = () => {
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         Login();
-        Router.replace("/");
+        //Router.replace("/");
     };
 
     return (
