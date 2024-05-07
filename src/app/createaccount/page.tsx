@@ -7,6 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+import axios from 'axios';
+
+export type CsrfToken = {
+    csrf_token: string
+}
 
 const Page = () => {
 
@@ -134,7 +139,7 @@ const Page = () => {
         return false;
     };
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         // バリデーション
@@ -150,7 +155,13 @@ const Page = () => {
 
         // 以下ログイン処理
         try {
-
+            //console.log("signinFormInput:",signinFormInput)
+            await axios.post(`http://localhost:8080/signup`, {
+                name: signinFormInput.name,
+                email: signinFormInput.email,
+                password: signinFormInput.password
+            });
+            
             // ログイン処理が成功した場合、トップページにリダイレクト
             router.replace('/');
 
