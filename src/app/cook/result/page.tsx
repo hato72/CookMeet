@@ -9,6 +9,7 @@ import { Grid } from "@mui/material";
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import Link from "next/link";
 
 const Result: React.FC = () => {
     const [recipes, setRecipes] = useState([{
@@ -67,16 +68,28 @@ const Result: React.FC = () => {
                 </div>
                 <Grid container justifyContent="center">
 
-                    <RecipeCard
+                    {/* <RecipeCard
                         img={recipes[currentMeal].image_url}
                         title={recipes[currentMeal].title}
                         description={recipes[currentMeal].description}
                         width="350px"
                         height="450px"
-                        url={recipes[currentMeal].url} />
+                        url={recipes[currentMeal].url} 
+                    /> */}
+                    <RecipeCard
+                        img="https://recipe.r10s.jp/recipe-space/d/strg/ctrl/3/50fe37bda3c657b77f2842d28727ceb3e8d89f4e.31.2.3.2.jpg?interpolation=lanczos-none&fit=around|716:716&crop=716:716;*,*"
+                        title="簡単☆本格ハンバーグソース レシピ・作り方"
+                        description="aaa"
+                        width="350px"
+                        height="450px"
+                        url="https://recipe.rakuten.co.jp/recipe/1570003792/" 
+                    />
                 </Grid>
 
-                <GreenRoundButton>これを作る！</GreenRoundButton>
+                <Link href="/cook/prep">
+                    <GreenRoundButton>これを作る！</GreenRoundButton>
+                </Link>
+                
                 <br></br><br></br>
                 <WhiteRoundButton onClick={() => arrowClicked()}>←おすすめ度{recipes[currentMeal].rank - 1 == 0 ? 3 : recipes[currentMeal].rank - 1}位</WhiteRoundButton>
                 <BlackRoundButton onClick={() => arrowClicked()}>おすすめ度{recipes[currentMeal].rank + 1 == 4 ? 1 : recipes[currentMeal].rank + 1}位→</BlackRoundButton>

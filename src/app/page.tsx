@@ -5,10 +5,27 @@ import { useAtom } from 'jotai';
 import { userAtom } from '../states/store/authAtom';
 
 import Link from "next/link";
+import { useEffect } from 'react'
+import axios from 'axios'
+import {CsrfToken} from "./createaccount/page";
 
 export default function Home() {
   const [user, setUser] = useAtom(userAtom);
   console.log(user);
+
+  useEffect(() => {
+    axios.defaults.withCredentials = true
+    const getCsrfToken = async () => {
+      const { data } = await axios.get<CsrfToken>(
+        `${process.env.API_URL}/csrf`
+      )
+      axios.defaults.headers.common['X-CSRF-Token'] = data.csrf_token
+      //console.log(data);
+    }
+    
+    getCsrfToken()
+  }, [])
+  
 
   return (
     <>
@@ -27,7 +44,7 @@ export default function Home() {
           <Link href="/cook/question">
             <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
           </Link>
-        ) : (<p>ログアウト状態</p>)}
+        ) : (<p></p>)}
       </div>
     </>
   );

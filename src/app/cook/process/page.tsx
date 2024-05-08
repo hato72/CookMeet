@@ -10,7 +10,6 @@ import Link from "next/link";
 import { useAtom } from "jotai";
 import { ingredientsAtom } from "@/states/store/ingredientsAtom";
 import { stepsAtom } from "@/states/store/stepAtom";
-import CheckboxLabel from "@/components/base/prep/CheckboxLabel";
 import axios from 'axios';
 
 const Result  = ({params}: {params: {id: number}}) => {
@@ -22,7 +21,7 @@ const Result  = ({params}: {params: {id: number}}) => {
     const [open, setOpen] = React.useState(true);
 
      useEffect(() => {
-        const fetchRecipes = async () => {
+         const fetchRecipes = async () => {
              try {
                  const response = await fetch(`https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/${id}/details`); // Call the GET function
                  const data = await response.json(); // Extract JSON data from the response
@@ -46,27 +45,23 @@ const Result  = ({params}: {params: {id: number}}) => {
         //         console.error('Error fetching recipes:', error);
         //     }
         // };
-
-        fetchRecipes();
      }, []);
 
     const handleClick = () => {
         setOpen(!open);
+        
     };
 
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">準備1</h1>
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900">準備2</h1>
             </div>
             <div className="text-center">
                 <h1 className="text-1xl font-bol text-gray-900"></h1>
-                <Grid container
-                    direction="row"
-                    justifyContent="center"
-                    alignItems="center">
-                    {/* ingredientsに材料が格納されているから、それをチェックボックス形式で表示したい */}
-                    {/* <CheckList/> */}
+
+                {/* stepsに作り方が格納されているからそれを表示したい */}
+                <Grid container justifyContent="center">
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                         <List
                             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
@@ -75,26 +70,25 @@ const Result  = ({params}: {params: {id: number}}) => {
                             subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                     <Typography variant="h6" component="div" color="textPrimary">
-                                        材料
+                                        作り方手順
                                     </Typography>
                                 </ListSubheader>
                             }
                         >
-                            {ingredients.map((ingredient, index) => (
+                            {steps.map((step, index) => (
                                 <ListItemButton onClick={handleClick} key={index}>
-                                    {/* CheckboxLabel コンポーネントを使用して各材料を表に表示 */}
-                                    <CheckboxLabel text={`${ingredient.name}: ${ingredient.amount}`} />
+                                    <Typography>{`${index + 1}. ${step}`}</Typography>
                                 </ListItemButton>
                             ))}
                         </List>
                     </div>
                 </Grid>
 
-                <Link href="/cook/result">
+                <Link href="/cook/prep">
                     <WhiteRoundButton>戻る</WhiteRoundButton>
                 </Link>
-                <Link href="/cook/process">
-                    <BlackRoundButton>作り方へ</BlackRoundButton>
+                <Link href="/cook/photo">
+                    <BlackRoundButton>これで完成! 写真を撮ろう!</BlackRoundButton>
                 </Link>
             </div >
         </>

@@ -64,7 +64,7 @@ export default function MyPage() {
                             }} /></Button>
                     </fieldset>
                     <div className="grow pr-10">
-                        <fieldset>
+                        {/* <fieldset>
                             <TextInput
                                 label="新しいユーザー名"
                                 helperText=""
@@ -73,16 +73,16 @@ export default function MyPage() {
                                 error={false}
                                 onChange={handleChangeName}
                             />
-                        </fieldset>
-                        <Link href="" className="inline-block mt-10">
-                            <SocialMediaButton>アカウント設定</SocialMediaButton>
+                        </fieldset> */}
+                        <Link href="/mypage/settings/update" className="inline-block mt-10">
+                            <SocialMediaButton>登録情報変更</SocialMediaButton>
                         </Link>
                     </div>
                 </form>
                 <div className="w-fit mx-auto mt-10">
-                    <GreenRoundButton type="submit">
-                        保存してマイページへ
-                    </GreenRoundButton>
+                    <Link href="/mypage">
+                        <GreenRoundButton type="submit">保存してマイページへ</GreenRoundButton>
+                    </Link>
                 </div>
             </div>
         </>

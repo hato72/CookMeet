@@ -7,11 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
-import axios from 'axios';
-
-export type CsrfToken = {
-    csrf_token: string
-}
+import axios from "axios";
 
 const Page = () => {
 
@@ -21,17 +17,17 @@ const Page = () => {
     };
 
     type SigninFormInput = {
-        name: string;
-        email: string;
-        password: string;
+        newname: string;
+        newemail: string;
+        newpassword: string;
     };
 
     type ValidationCheck = (targetInput?: string) => boolean;
 
     const [signinFormInput, setSigninFormInput] = React.useState<SigninFormInput>({
-        name: '',
-        email: '',
-        password: '',
+        newname: '',
+        newemail: '',
+        newpassword: '',
     });
 
     const [passwordConfirmation, setPasswordConfirmation] = React.useState<string>('');
@@ -45,7 +41,7 @@ const Page = () => {
     const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSigninFormInput({
             ...signinFormInput,
-            name: e.target.value
+            newname: e.target.value
         });
 
         // 一度エラーを出してしまったときだけ、都度バリデーションを行う
@@ -57,7 +53,7 @@ const Page = () => {
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSigninFormInput({
             ...signinFormInput,
-            email: e.target.value
+            newemail: e.target.value
         });
 
         // 一度エラーを出してしまったときだけ、都度バリデーションを行う
@@ -69,7 +65,7 @@ const Page = () => {
     const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSigninFormInput({
             ...signinFormInput,
-            password: e.target.value
+            newpassword: e.target.value
         });
 
         // 一度エラーを出してしまったときだけ、都度バリデーションを行う
@@ -87,7 +83,7 @@ const Page = () => {
         }
     };
 
-    const validateName: ValidationCheck = (name: string = signinFormInput.name) => {
+    const validateName: ValidationCheck = (name: string = signinFormInput.newname) => {
         if (name === '') {
             setNameError({ ...nameError, error: true, message: 'ユーザー名を入力してください' });
             return true;
@@ -96,7 +92,7 @@ const Page = () => {
         return false;
     };
 
-    const validateEmail: ValidationCheck = (email: string = signinFormInput.email) => {
+    const validateEmail: ValidationCheck = (email: string = signinFormInput.newemail) => {
         if (email === '') {
             setEmailError({ ...emailError, error: true, message: 'メールアドレスを入力してください' });
             return true;
@@ -111,13 +107,13 @@ const Page = () => {
         return false;
     };
 
-    const validatePassword: ValidationCheck = (password: string = signinFormInput.password) => {
-        if (signinFormInput.password === '') {
+    const validatePassword: ValidationCheck = (password: string = signinFormInput.newpassword) => {
+        if (signinFormInput.newpassword === '') {
             setPasswordError({ ...passwordError, error: true, message: 'パスワードを入力してください' });
             return true;
         }
 
-        if (signinFormInput.password.length < 6 || signinFormInput.password.length > 30) {
+        if (signinFormInput.newpassword.length < 6 || signinFormInput.newpassword.length > 30) {
             setPasswordError({ ...passwordError, error: true, message: 'パスワードは6文字以上30文字以下で入力してください' });
             return true;
         }
@@ -131,7 +127,7 @@ const Page = () => {
             setPasswordConfirmationError({ ...passwordConfirmationError, error: true, message: '確認用のパスワードを入力してください' });
             return true;
         }
-        if (signinFormInput.password !== password) {
+        if (signinFormInput.newpassword !== password) {
             setPasswordConfirmationError({ ...passwordConfirmationError, error: true, message: 'パスワードが一致しません' })
             return true;
         }
@@ -155,15 +151,14 @@ const Page = () => {
 
         // 以下ログイン処理
         try {
-            //console.log("signinFormInput:",signinFormInput)
-            await axios.post(`${process.env.API_URL}/signup`, {
-                name: signinFormInput.name,
-                email: signinFormInput.email,
-                password: signinFormInput.password
+            await axios.put(`${process.env.API_URL}/update`, {
+                name: signinFormInput.newname,
+                email: signinFormInput.newemail,
+                password: signinFormInput.newpassword
             });
-            
+
             // ログイン処理が成功した場合、トップページにリダイレクト
-            router.replace('/');
+            // router.replace('/');
 
         } catch (err) {
             console.log(err);
@@ -178,30 +173,30 @@ const Page = () => {
             <div className="basis-1/2 pt-16 pl-16 pr-5">
                 <hgroup>
                     <h2 className="text-4xl text-green-700 font-bold">Meet a new meal.</h2>
-                    <p className="mt-10 text-green-700">アカウントを作成してください。</p>
+                    <p>登録情報変更</p>
                 </hgroup>
                 <form onSubmit={onSubmit} className="mt-10">
                     <div>
                         <div className="flex flex-col gap-y-4">
                             <fieldset>
                                 <TextInput
-                                    label="ユーザー名"
+                                    label="新しいユーザー名"
                                     type="text"
                                     helperText={nameError.message}
                                     error={nameError.error}
                                     placeholder="例: クックミート"
-                                    value={signinFormInput.name}
+                                    value={signinFormInput.newname}
                                     onChange={handleChangeName}
                                 />
                             </fieldset>
                             <fieldset>
                                 <TextInput
-                                    label="メールアドレス"
+                                    label="新しいメールアドレス"
                                     type="email"
                                     helperText={emailError.message}
                                     error={emailError.error}
                                     placeholder="例: sample@example.com"
-                                    value={signinFormInput.email}
+                                    value={signinFormInput.newemail}
                                     onChange={handleChangeEmail}
                                 />
                             </fieldset>
@@ -209,14 +204,14 @@ const Page = () => {
                                 <PasswordInput
                                     helperText={passwordError.message}
                                     error={passwordError.error}
-                                    value={signinFormInput.password}
+                                    value={signinFormInput.newpassword}
                                     placeholder="パスワードを入力してください"
                                     onChange={handleChangePassword}
                                 />
                             </fieldset>
                             <fieldset>
                                 <PasswordInput
-                                    label="パスワード（再入力）"
+                                    label="新しいパスワード（再入力）"
                                     helperText={passwordConfirmationError.message}
                                     error={passwordConfirmationError.error}
                                     value={passwordConfirmation}
@@ -224,12 +219,14 @@ const Page = () => {
                                     onChange={handleChangePasswordConfirmation}
                                 />
                             </fieldset>
-                            <p>すでにアカウントをお持ちですか？  <Link href="/login" className="underline text-green-700">ログイン</Link></p>
+                            {/* <p>すでにアカウントをお持ちですか？  <Link href="/login" className="underline text-green-700">ログイン</Link></p> */}
                         </div>
                         <div className="mt-16">
                             <menu className="flex gap-x-8">
                                 <li>
-                                    <GreenQuadButton type="submit">新規登録</GreenQuadButton>
+                                    <Link href="/mypage/settings">
+                                        <GreenQuadButton type="submit">変更完了</GreenQuadButton>
+                                    </Link>
                                 </li>
                             </menu>
                         </div>

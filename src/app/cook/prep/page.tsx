@@ -22,7 +22,7 @@ const Result  = ({params}: {params: {id: number}}) => {
     const [open, setOpen] = React.useState(true);
 
      useEffect(() => {
-        const fetchRecipes = async () => {
+         const fetchRecipes = async () => {
              try {
                  const response = await fetch(`https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/${id}/details`); // Call the GET function
                  const data = await response.json(); // Extract JSON data from the response

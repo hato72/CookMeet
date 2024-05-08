@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+import axios from "axios";
 
 type FormError = {
     error: boolean;
@@ -27,10 +28,27 @@ const Page = () => {
     const Router = useRouter();
 
     const Login = async () => {
-        console.log(user);
-        setUser(true);
-        console.log(user);
-        console.log("ログイン");
+        // console.log(user);
+        //setUser(true);
+        // console.log(user);
+        // console.log("ログイン");
+        try {
+            const response = await axios.post(`${process.env.API_URL}/login`, {
+                email,
+                password
+            });
+    
+            // ログイン成功時の処理
+            const { token, user } = response.data; // 仮のレスポンスデータ構造です
+            setUser(true);
+            //setUser(user);
+            localStorage.setItem('token', token); // トークンをローカルストレージに保存
+            //Router.replace("/cook/question");
+        } catch (error) {
+            console.error(error);
+            // ログイン失敗時の処理
+            setServerError({ ...serverError, error: true, message: 'ログインに失敗しました。メールアドレスとパスワードを確認してください。' });
+        }
     };
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
