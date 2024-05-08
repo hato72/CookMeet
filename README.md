@@ -19,3 +19,6 @@ bun dev
 
 ## Deploy on Vercel
 
+## Backend
+https://github.com/hato72/go_backend_hackathon
+
