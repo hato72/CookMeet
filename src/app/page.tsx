@@ -44,7 +44,7 @@ export default function Home() {
           <Link href="/cook/question">
             <GreenRoundButton>質問に回答して料理を生成→</GreenRoundButton>
           </Link>
-        ) : (<p>ログアウト状態</p>)}
+        ) : (<p></p>)}
       </div>
     </>
   );

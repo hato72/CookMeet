@@ -74,7 +74,7 @@ export default function MyPage() {
                                 onChange={handleChangeName}
                             />
                         </fieldset> */}
-                        <Link href="mypage/settings/update" className="inline-block mt-10">
+                        <Link href="/mypage/settings/update" className="inline-block mt-10">
                             <SocialMediaButton>登録情報変更</SocialMediaButton>
                         </Link>
                     </div>

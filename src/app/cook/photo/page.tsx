@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
@@ -46,6 +48,7 @@ const UploadPage: React.FC = () => {
     };
 
     return (
+        <>
         <div className="container">
             <h1 className="upload-heading">写真をアップロードする</h1>
             <form className="upload-form" onSubmit={handleSubmit}>
@@ -64,13 +67,14 @@ const UploadPage: React.FC = () => {
                         value={comment}
                         onChange={handleCommentChange}
                     />
-                    <Link href={'./cook/repo'}>
-                        <BlackRoundButton type="submit" className="submit-button">完了</BlackRoundButton>
-                    </Link>
-                    {/* 調理記録ページへ */}
                 </div>
+                <Link href={'./repo'}>
+                    <BlackRoundButton type="submit" className="submit-button">完了</BlackRoundButton>
+                </Link>
+                {/* 調理記録ページへ */}
             </form>
         </div>
+        </>
     );
 };
 

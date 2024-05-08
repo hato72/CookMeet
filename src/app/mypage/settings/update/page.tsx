@@ -224,7 +224,7 @@ const Page = () => {
                         <div className="mt-16">
                             <menu className="flex gap-x-8">
                                 <li>
-                                    <Link href="/settings">
+                                    <Link href="/mypage/settings">
                                         <GreenQuadButton type="submit">変更完了</GreenQuadButton>
                                     </Link>
                                 </li>
