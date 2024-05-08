@@ -9,6 +9,9 @@ https://www.figma.com/file/odqLos9MRpgLxRzyeQLdqp/CookMeet?type=design&node-id=1
 
 <!--https://www.canva.com/design/DAGDn8CWwbs/gXv1wxaqmERPnnyMMvZp3Q/edit -->
 
+## Backend
+https://github.com/hato72/go_backend_hackathon
+
 ## Getting Started
 
 First, run the development server:
@@ -22,9 +25,4 @@ pnpm dev
 # or
 bun dev
 ```
-
-## Deploy on Vercel
-
-## Backend
-https://github.com/hato72/go_backend_hackathon
 
