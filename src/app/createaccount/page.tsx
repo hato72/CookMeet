@@ -156,7 +156,7 @@ const Page = () => {
         // 以下ログイン処理
         try {
             //console.log("signinFormInput:",signinFormInput)
-            await axios.post(`http://localhost:8080/signup`, {
+            await axios.post(`${process.env.API_URL}/signup`, {
                 name: signinFormInput.name,
                 email: signinFormInput.email,
                 password: signinFormInput.password

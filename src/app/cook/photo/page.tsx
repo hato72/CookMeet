@@ -33,7 +33,8 @@ const UploadPage: React.FC = () => {
             //formData.append('comment', comment);
 
             // サーバーに POST リクエストを送信
-            await axios.post('http://localhost:8080/cuisines', formData, {
+            //await axios.post('http://localhost:8080/cuisines', formData, {
+            await axios.post(`${process.env.API_URL}/cuisines`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

@@ -17,7 +17,7 @@ export default function Home() {
     axios.defaults.withCredentials = true
     const getCsrfToken = async () => {
       const { data } = await axios.get<CsrfToken>(
-        `http://localhost:8080/csrf`
+        `${process.env.API_URL}/csrf`
       )
       axios.defaults.headers.common['X-CSRF-Token'] = data.csrf_token
       //console.log(data);
