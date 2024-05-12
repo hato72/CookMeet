@@ -53,8 +53,6 @@ function MainComponent() {
         <Link href="/update">
             <WhiteRoundButton type="submit">登録情報変更</WhiteRoundButton>
         </Link>
-      </div>
-      <div className="w-fit mx-auto mt-10">
         <Link href="/mypage">
             <GreenRoundButton type="submit">保存してマイページへ</GreenRoundButton>
         </Link>

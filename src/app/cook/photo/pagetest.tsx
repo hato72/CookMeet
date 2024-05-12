@@ -41,8 +41,8 @@ function MainComponent() {
           placeholder="コメント"
         ></textarea>
       </section>
-      
-      <Link href={'./repo'}>
+
+      <Link href='./repo'>
           <BlackRoundButton type="button" className="submit-button absolute left-[600px] top-[850px]" onClick={handleSubmit}>
               完了
           </BlackRoundButton>
