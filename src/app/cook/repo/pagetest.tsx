@@ -1,5 +1,9 @@
 "use client";
 import React from "react";
+import RecipeCard from "@/components/base/meal/Meal";
+import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
+import Link from "next/link";
 
 function MainComponent() {
   const handleImageUpload = (event) => {
@@ -13,9 +17,10 @@ function MainComponent() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <header className="text-[#121212] text-3xl font-roboto mb-6">
-        調理記録
-      </header>
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">調理記録</h1>
+      </div>
+
       <section className="grid grid-cols-2 gap-4">
         <a
           href="https://cookpad.com"
@@ -39,13 +44,10 @@ function MainComponent() {
           </div>
         </a>
         <div className="flex flex-col">
-          <button className="bg-white px-6 py-2 rounded-full border border-gray-300 text-sm shadow-sm font-roboto mb-4 flex items-center justify-center">
-            <i className="fa fa-share-alt mr-2 text-[#666666]"></i>
-            SNSでシェアする
-          </button>
-          <button className="bg-[#28a745] text-white px-6 py-2 rounded-full text-sm font-roboto">
-            マイページ
-          </button>
+          <WhiteRoundButton>SNSでシェア</WhiteRoundButton>
+          <Link href="/mypage">
+              <GreenRoundButton>マイページへ</GreenRoundButton>
+          </Link>
         </div>
       </section>
     </div>

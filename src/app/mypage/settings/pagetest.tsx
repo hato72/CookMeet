@@ -1,10 +1,14 @@
 "use client";
 import React from "react";
+import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 
 function MainComponent() {
   const [imageSrc, setImageSrc] = React.useState(
     "path_to_placeholder_image.jpg"
   );
+  const [email, setEmail] = React.useState("user@example.com");
+  const [username, setUsername] = React.useState("ユーザー名");
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -15,10 +19,6 @@ function MainComponent() {
     if (file) {
       reader.readAsDataURL(file);
     }
-  };
-
-  const handleRedirect = () => {
-    window.location.href = "http://localhost:3000/mypage/update";
   };
 
   return (
@@ -44,22 +44,21 @@ function MainComponent() {
           <i className="fa fa-edit text-lg"></i>
         </label>
       </div>
-      <form className="flex flex-col gap-4 mb-4">
-        <input
-          type="text"
-          placeholder="新しいユーザー名"
-          className="bg-white px-4 py-2 border border-gray-300 rounded-lg"
-        />
-        <input
-          type="button"
-          value="メールアドレス・パスワード変更"
-          onClick={handleRedirect}
-          className="bg-white px-4 py-2 border border-gray-300 rounded-lg cursor-pointer"
-        />
-      </form>
-      <button className="bg-[#28a745] text-white px-10 py-2 rounded-full text-sm font-roboto w-full">
-        保存してマイページへ
-      </button>
+      <div className="mb-4">
+        <div>{username}</div>
+        <div>{email}</div>
+      </div> 
+
+      <div className="w-fit mx-auto mt-10">
+        <Link href="/update">
+            <WhiteRoundButton type="submit">登録情報変更</WhiteRoundButton>
+        </Link>
+      </div>
+      <div className="w-fit mx-auto mt-10">
+        <Link href="/mypage">
+            <GreenRoundButton type="submit">保存してマイページへ</GreenRoundButton>
+        </Link>
+      </div>
     </div>
   );
 }

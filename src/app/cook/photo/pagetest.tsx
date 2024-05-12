@@ -1,5 +1,8 @@
 "use client";
 import React from "react";
+import axios from 'axios';
+import Link from 'next/link';
+import BlackRoundButton from '@/components/ui/buttun/BlackRoundButton';
 
 function MainComponent() {
   const handleImageUpload = (event) => {
@@ -15,9 +18,10 @@ function MainComponent() {
 
   return (
     <div className="container mx-auto p-4">
-      <header className="text-[#121212] text-2xl font-roboto mb-4">
-        記録しよう
-      </header>
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">記録しよう</h1>
+      </div>
+
       <section className="grid grid-cols-2 gap-4">
         <label className="flex flex-col items-center justify-center bg-[#f0f0f0] border-2 border-dashed border-[#0066CC] rounded-lg cursor-pointer w-[400px] h-[250px]">
           <i className="fa fa-cloud-upload-alt text-3xl text-[#0066CC]"></i>
@@ -31,14 +35,18 @@ function MainComponent() {
             onChange={handleImageUpload}
           />
         </label>
+
         <textarea
           className="border-2 border-[#f0f0f0] rounded-lg p-3 w-full h-[250px] resize-none"
           placeholder="コメント"
         ></textarea>
       </section>
-      <button className="bg-[#121212] text-white px-4 py-2 rounded mt-4">
-        完了
-      </button>
+      
+      <Link href={'./repo'}>
+          <BlackRoundButton type="button" className="submit-button absolute left-[600px] top-[850px]" onClick={handleSubmit}>
+              完了
+          </BlackRoundButton>
+      </Link>
       <style jsx global>{`
         body {
           font-family: 'Roboto', sans-serif;
