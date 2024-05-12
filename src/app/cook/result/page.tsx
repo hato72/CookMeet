@@ -3,7 +3,7 @@
 import RecipeCard from "@/components/base/meal/Meal";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
-import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import { mealAtom } from "@/states/store/mealAtom";
 import { Grid } from "@mui/material";
 import { useAtom } from "jotai";

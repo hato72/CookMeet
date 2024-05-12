@@ -1,6 +1,6 @@
 import RecipeCard from "@/components/base/meal/Meal";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
-import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import Link from "next/link";
 
 export default function MyPage() {

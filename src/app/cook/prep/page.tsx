@@ -1,7 +1,7 @@
 "use client"
 
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
-import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import CheckList from "@/components/base/prep/CheckList";
