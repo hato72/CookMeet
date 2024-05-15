@@ -57,7 +57,7 @@ const Result  = ({params}: {params: {id: number}}) => {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">準備1</h1>
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900">準備1</h1>
             </div>
             <div className="text-center">
                 <h1 className="text-1xl font-bol text-gray-900"></h1>
