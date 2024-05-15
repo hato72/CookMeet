@@ -7,7 +7,11 @@ import { userAtom } from '../states/store/authAtom';
 import Link from "next/link";
 import { useEffect } from 'react'
 import axios from 'axios'
-import {CsrfToken} from "./createaccount/page";
+//import {CsrfToken} from "./createaccount/page";
+
+type CsrfToken = {
+  csrf_token: string
+}
 
 export default function Home() {
   const [user, setUser] = useAtom(userAtom);
