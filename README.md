@@ -1,5 +1,6 @@
 # CookMeet
 ![cookmeet](https://github.com/hato72/CookMeet/assets/139688965/f9638a58-3cf7-4b10-a659-2f53a4dee5fb)
+現在は推論AIのデプロイを行っていないため、質問回答後に提示される料理はサンプルに置き換えています。
 
 ## Demo
 https://cook-meet.vercel.app/
