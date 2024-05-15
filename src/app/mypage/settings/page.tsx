@@ -44,11 +44,14 @@ export default function MyPage() {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">アカウント設定</h1>
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900">アカウント設定</h1>
+            </div>
+            
+            <div className="left-[400px]">
                 <form className="flex w-full mt-10" onSubmit={onSubmit}>
                     <fieldset className="w-96 flex flex-col items-center gap-y-4">
                         <Avatar id="user_icon" sx={{ width: 150, height: 150 }} src={previewURL} />
-                        <label htmlFor="user_icon" className="font-bold text-xl">ユーザーの名前</label>
+                        <label htmlFor="user_icon" className="font-bold text-xl">ユーザー名</label>
                         <Button role={undefined} component="label" startIcon={<CloudUpload />} color="success">
                             アイコン変更
                             <input type="file" name="" id="" onChange={handleChangeIconFile} style={{
@@ -74,16 +77,20 @@ export default function MyPage() {
                                 onChange={handleChangeName}
                             />
                         </fieldset> */}
-                        <Link href="/mypage/settings/update" className="inline-block mt-10">
+                        {/* <Link href="/mypage/settings/update" className="inline-block mt-10">
                             <SocialMediaButton>登録情報変更</SocialMediaButton>
-                        </Link>
+                        </Link> */}
                     </div>
                 </form>
-                <div className="w-fit mx-auto mt-10">
-                    <Link href="/mypage">
-                        <GreenRoundButton type="submit">保存してマイページへ</GreenRoundButton>
-                    </Link>
-                </div>
+            </div>
+            <div className="left-[700px] top-[100px]">
+                <Link href="/mypage/settings/update" className="inline-block mt-10">
+                    <SocialMediaButton className="w-[200px] left-[200px] ">登録情報変更</SocialMediaButton>
+                </Link>
+                <Link href="/mypage">
+                    <GreenRoundButton className="left-[400px]" type="submit" >保存してマイページへ</GreenRoundButton>
+                </Link>
+                
             </div>
         </>
     );
