@@ -7,8 +7,7 @@ import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import { mealAtom } from "@/states/store/mealAtom";
 import { Grid } from "@mui/material";
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState,useEffect } from 'react';
 import Link from "next/link";
 
 const Result: React.FC = () => {
