@@ -66,8 +66,8 @@ const Page = () => {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        //Login();
-        Logintest();
+        Login();
+        //Logintest();
         Router.replace("/");
     };
 
