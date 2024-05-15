@@ -5,7 +5,7 @@
 ## デモページ
 https://cook-meet.vercel.app/
 
-## 実行結果(Screenshot)
+## 実行結果(スクリーンショット)
 https://drive.google.com/drive/folders/13FZTsp6b1pusNQ1nazpeFZ0wbgbyHS7o?usp=drive_link
 
 ## ページ・システムデザイン
