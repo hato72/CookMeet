@@ -26,7 +26,12 @@ const Page = () => {
     const [user, setUser] = useAtom(userAtom);
 
     const Router = useRouter();
-
+    const Logintest = async () => {
+        console.log(user);
+        setUser(true);
+        console.log(user);
+        console.log("ログイン");
+    }
     const Login = async () => {
         // console.log(user);
         //setUser(true);
@@ -61,7 +66,8 @@ const Page = () => {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        Login();
+        //Login();
+        Logintest();
         Router.replace("/");
     };
 

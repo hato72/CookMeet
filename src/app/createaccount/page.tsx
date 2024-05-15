@@ -155,12 +155,12 @@ const Page = () => {
 
         // 以下ログイン処理
         try {
-            //console.log("signinFormInput:",signinFormInput)
-            await axios.post(`${process.env.API_URL}/signup`, {
-                name: signinFormInput.name,
-                email: signinFormInput.email,
-                password: signinFormInput.password
-            });
+            
+            // await axios.post(`${process.env.API_URL}/signup`, {
+            //     name: signinFormInput.name,
+            //     email: signinFormInput.email,
+            //     password: signinFormInput.password
+            // });
             
             // ログイン処理が成功した場合、トップページにリダイレクト
             router.replace('/');
