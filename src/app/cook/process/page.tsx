@@ -1,7 +1,7 @@
 "use client"
 
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
-import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import CheckList from "@/components/base/prep/CheckList";
@@ -55,7 +55,7 @@ const Result  = ({params}: {params: {id: number}}) => {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">準備2</h1>
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900">準備2</h1>
             </div>
             <div className="text-center">
                 <h1 className="text-1xl font-bol text-gray-900"></h1>
@@ -88,6 +88,7 @@ const Result  = ({params}: {params: {id: number}}) => {
                     <WhiteRoundButton>戻る</WhiteRoundButton>
                 </Link>
                 <Link href="/cook/photo">
+                {/* <Link href="/cook/photo/test"> */}
                     <BlackRoundButton>これで完成! 写真を撮ろう!</BlackRoundButton>
                 </Link>
             </div >

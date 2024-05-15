@@ -155,7 +155,7 @@ const Page = () => {
 
         // 以下ログイン処理
         try {
-            //console.log("signinFormInput:",signinFormInput)
+            
             await axios.post(`${process.env.API_URL}/signup`, {
                 name: signinFormInput.name,
                 email: signinFormInput.email,

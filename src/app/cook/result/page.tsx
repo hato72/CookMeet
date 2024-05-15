@@ -3,12 +3,11 @@
 import RecipeCard from "@/components/base/meal/Meal";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
-import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton copy";
+import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import { mealAtom } from "@/states/store/mealAtom";
 import { Grid } from "@mui/material";
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState,useEffect } from 'react';
 import Link from "next/link";
 
 const Result: React.FC = () => {
@@ -60,7 +59,7 @@ const Result: React.FC = () => {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">生成結果</h1>
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900">生成結果</h1>
             </div>
             <div className="text-center">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -79,7 +78,7 @@ const Result: React.FC = () => {
                     <RecipeCard
                         img="https://recipe.r10s.jp/recipe-space/d/strg/ctrl/3/50fe37bda3c657b77f2842d28727ceb3e8d89f4e.31.2.3.2.jpg?interpolation=lanczos-none&fit=around|716:716&crop=716:716;*,*"
                         title="簡単☆本格ハンバーグソース レシピ・作り方"
-                        description="aaa"
+                        description=""
                         width="350px"
                         height="450px"
                         url="https://recipe.rakuten.co.jp/recipe/1570003792/" 

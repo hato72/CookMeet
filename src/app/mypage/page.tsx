@@ -5,14 +5,19 @@ export default function MyPage() {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">マイページ</h1>
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900">マイページ</h1>
             </div>
-            <Link href="/mypage/settings">
-                <SocialMediaButton>アカウント設定</SocialMediaButton>
+            <div className="left-[150px] top-[200px] absolute">
+            {/* <Link href="/mypage/settings"> */}
+            <Link href="/mypage/settings/test">
+                <SocialMediaButton className="w-[800px]">アカウント設定</SocialMediaButton>
             </Link>
+            </div>
+            <div className="left-[150px] top-[300px] absolute">
             <Link href="/mypage/history">
-                <SocialMediaButton>調理履歴</SocialMediaButton>
+                <SocialMediaButton className="w-[800px]">調理履歴</SocialMediaButton>
             </Link>
+            </div>
         </>
     );
 }
