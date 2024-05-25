@@ -5,16 +5,18 @@ import { useAtom } from 'jotai';
 import { userAtom } from '../states/store/authAtom';
 
 import Link from "next/link";
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import {CsrfToken} from "./createaccount/page";
 
 export default function Home() {
   const [user, setUser] = useAtom(userAtom);
+  const [csrfTokenSet, setCsrfTokenSet] = useState(false);
+
   console.log(user);
 
   useEffect(() => {
-    axios.defaults.withCredentials = true
+    //axios.defaults.withCredentials = true
     const getCsrfToken = async () => {
       const { data } = await axios.get<CsrfToken>(
         `${process.env.NEXT_PUBLIC_API_URL}/csrf`
@@ -22,10 +24,14 @@ export default function Home() {
       )
       axios.defaults.headers.common['X-CSRF-TOKEN'] = data.csrf_token
       //console.log(data);
+      setCsrfTokenSet(true);
+    };
+
+    if (!csrfTokenSet) {
+      axios.defaults.withCredentials = true;
+      getCsrfToken();
     }
-    
-    getCsrfToken()
-  }, [])
+  }, [csrfTokenSet]);
   
 
   return (
