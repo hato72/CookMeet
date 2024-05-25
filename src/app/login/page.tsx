@@ -38,7 +38,7 @@ const Page = () => {
         // console.log(user);
         // console.log("ログイン");
         try {
-            const response = await axios.post(`${process.env.API_URL}/login`, {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
                 email,
                 password
             });

@@ -151,7 +151,7 @@ const Page = () => {
 
         // 以下ログイン処理
         try {
-            await axios.put(`${process.env.API_URL}/update`, {
+            await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/update`, {
                 name: signinFormInput.newname,
                 email: signinFormInput.newemail,
                 password: signinFormInput.newpassword
