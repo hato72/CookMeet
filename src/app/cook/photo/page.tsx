@@ -99,7 +99,7 @@ const UploadPage: React.FC = () => {
             </div>
 
             {/* Submit button */}
-            <Link href={'./repo'}>
+            <Link href={'/cook/repo'}>
                 <BlackRoundButton type="button" className="submit-button absolute left-[650px] top-[600px]" onClick={handleSubmit}>
                     完了
                 </BlackRoundButton>

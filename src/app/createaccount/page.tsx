@@ -236,10 +236,7 @@ const Page = () => {
                     </div>
                 </form>
             </div>
-            <aside className="basis-1/2">
-                <br></br><br></br><br></br>
-                <Image src={"/images/meal.png"} alt="料理のイメージ画像" className="w-full object-center object-fill" width={100} height={100} />
-            </aside>
+            
 
         </div>
     );
