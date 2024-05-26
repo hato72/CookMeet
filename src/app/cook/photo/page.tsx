@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import BlackRoundButton from '@/components/ui/buttun/BlackRoundButton';
+import Image from 'next/image';
 
 const UploadPage: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -73,7 +74,7 @@ const UploadPage: React.FC = () => {
                 </div> */}
                 <label className="flex flex-col items-center justify-center bg-[#f0f0f0] border-2 border-dashed border-[#0066CC] rounded-lg cursor-pointer w-[400px] h-[200px]">
                     <i className="fa fa-cloud-upload-alt text-3xl text-[#0066CC]"></i>
-                    <img src="/cloudimage/cloud.jpeg" alt=""></img>
+                    <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKnJOlPK-v8K6V0Ealvw5DodaU1FPwsm-YRpCFXq3DnA&s" alt="cloud image" width={200} height={100} />
                     
                     <span className="font-roboto text-base text-[#121212] mt-2">
                         写真アップロード

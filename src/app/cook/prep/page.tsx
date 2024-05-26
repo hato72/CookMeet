@@ -75,17 +75,23 @@ const Result  = ({params}: {params: {id: number}}) => {
                             subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                     <Typography variant="h6" component="div" color="textPrimary">
-                                        材料
+                                        材料(サンプル)
                                     </Typography>
                                 </ListSubheader>
                             }
                         >
-                            {ingredients.map((ingredient, index) => (
+                            {/* {ingredients.map((ingredient, index) => (
                                 <ListItemButton onClick={handleClick} key={index}>
-                                    {/* CheckboxLabel コンポーネントを使用して各材料を表に表示 */}
                                     <CheckboxLabel text={`${ingredient.name}: ${ingredient.amount}`} />
                                 </ListItemButton>
-                            ))}
+                            ))} */}
+
+                            <ListItemButton onClick={handleClick}>
+                                <CheckboxLabel text={"ケチャップ：大さじ5"} />
+                                <CheckboxLabel text={"ソース：大さじ5"} />
+                                <CheckboxLabel text={"バター：20g"} />
+                                <CheckboxLabel text={"砂糖：小さじ1"} />
+                            </ListItemButton>
                         </List>
                     </div>
                 </Grid>

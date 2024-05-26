@@ -70,16 +70,21 @@ const Result  = ({params}: {params: {id: number}}) => {
                             subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                     <Typography variant="h6" component="div" color="textPrimary">
-                                        作り方手順
+                                        作り方手順(サンプル)
                                     </Typography>
                                 </ListSubheader>
                             }
                         >
-                            {steps.map((step, index) => (
+                            {/* {steps.map((step, index) => (
                                 <ListItemButton onClick={handleClick} key={index}>
                                     <Typography>{`${index + 1}. ${step}`}</Typography>
                                 </ListItemButton>
-                            ))}
+                            ))} */}
+                            <ListItemButton onClick={handleClick}>
+                                <Typography>{"1. ハンバーグを焼いた後の肉汁の残ってるフライパンで作ります。脂がたくさんすぎる場合はキッチンペーパーで拭き取る。"}</Typography>
+                                <Typography>{"2. 材料を全て入れて焦げないように混ぜながら少し（1～2分）煮詰めて出来上がり。"}</Typography>
+                                <Typography>{"3. ハンバーグだけでなく、目玉焼きや付け合わせのにんじんやじゃがいもなどにもお勧めです。"}</Typography>
+                            </ListItemButton>
                         </List>
                     </div>
                 </Grid>
