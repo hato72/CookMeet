@@ -46,7 +46,7 @@ const Page = () => {
             // ログイン成功時の処理
             const { token, user } = response.data; // 仮のレスポンスデータ構造です
             setUser(true);
-            console.log("user:" + user);
+            console.log("success login")
             //setUser(user);
             localStorage.setItem('token', token); // トークンをローカルストレージに保存
             //Router.replace("/cook/question");
@@ -70,7 +70,7 @@ const Page = () => {
         Login();
         //Logintest();
         Router.replace("/");
-        console.log("success login")
+        
     };
 
     return (
