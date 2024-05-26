@@ -29,7 +29,7 @@ const Page = () => {
     const Logintest = async () => {
         console.log(user);
         setUser(true);
-        console.log(user);
+        console.log("user:" + user);
         console.log("ログイン");
     }
     const Login = async () => {
@@ -46,6 +46,7 @@ const Page = () => {
             // ログイン成功時の処理
             const { token, user } = response.data; // 仮のレスポンスデータ構造です
             setUser(true);
+            console.log("user:" + user);
             //setUser(user);
             localStorage.setItem('token', token); // トークンをローカルストレージに保存
             //Router.replace("/cook/question");
@@ -69,6 +70,7 @@ const Page = () => {
         Login();
         //Logintest();
         Router.replace("/");
+        console.log("success login")
     };
 
     return (
@@ -108,7 +110,7 @@ const Page = () => {
                                     <GreenQuadButton type="submit">ログイン</GreenQuadButton>
                                 </li>
                                 <li>
-                                    <Link href={'./createaccount'}>
+                                    <Link href='/createaccount'>
                                         <WhiteQuadButton>新規登録</WhiteQuadButton>
                                     </Link>
                                 </li>

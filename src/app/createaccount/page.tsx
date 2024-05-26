@@ -164,6 +164,7 @@ const Page = () => {
             
             // ログイン処理が成功した場合、トップページにリダイレクト
             router.replace('/');
+            console.log("success create ")
 
         } catch (err) {
             console.log(err);
