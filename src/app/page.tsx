@@ -15,8 +15,25 @@ export default function Home() {
 
   console.log(user);
 
+  // useEffect(() => {
+  //   //axios.defaults.withCredentials = true
+  //   const getCsrfToken = async () => {
+  //     const { data } = await axios.get<CsrfToken>(
+  //       `${process.env.NEXT_PUBLIC_API_URL}/csrf`
+  //       //"http://localhost:8080/csrf"
+  //     )
+  //     axios.defaults.headers.common['X-CSRF-TOKEN'] = data.csrf_token
+  //     //console.log(data);
+  //     setCsrfTokenSet(true);
+  //   };
+
+  //   if (!csrfTokenSet) {
+  //     axios.defaults.withCredentials = true;
+  //     getCsrfToken();
+  //   }
+  // }, [csrfTokenSet]);
   useEffect(() => {
-    //axios.defaults.withCredentials = true
+    axios.defaults.withCredentials = true
     const getCsrfToken = async () => {
       const { data } = await axios.get<CsrfToken>(
         `${process.env.NEXT_PUBLIC_API_URL}/csrf`
@@ -24,14 +41,9 @@ export default function Home() {
       )
       axios.defaults.headers.common['X-CSRF-TOKEN'] = data.csrf_token
       //console.log(data);
-      setCsrfTokenSet(true);
     };
-
-    if (!csrfTokenSet) {
-      axios.defaults.withCredentials = true;
-      getCsrfToken();
-    }
-  }, [csrfTokenSet]);
+    getCsrfToken();
+  }, []);
   
 
   return (
