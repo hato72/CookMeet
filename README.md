@@ -8,6 +8,9 @@ https://cook-meet.vercel.app/
 ## 実行結果(スクリーンショット)
 https://drive.google.com/drive/folders/13FZTsp6b1pusNQ1nazpeFZ0wbgbyHS7o?usp=drive_link
 
+## 実行結果(サンプル動画)
+https://drive.google.com/file/d/1r2h5eN5zZ504joHI-lCUeWlXblg38WuQ/view?usp=drive_link
+
 ## ページ・システムデザイン
 https://www.figma.com/file/odqLos9MRpgLxRzyeQLdqp/CookMeet?type=design&node-id=1669-162202&mode=design&t=SefV1V31H40r3biN-0
 
