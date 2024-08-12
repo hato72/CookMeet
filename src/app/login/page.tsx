@@ -5,17 +5,19 @@ import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 import PasswordInput from "@/components/ui/form/PasswordInput";
 import TextInput from "@/components/ui/form/TextInput";
 import { userAtom } from "@/states/store/authAtom";
-import { useAtom } from "jotai";
+import { useAtom} from "jotai";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import axios from "axios";
+import { emailAtom } from "../mypage/settings/test/page";
 
 type FormError = {
     error: boolean;
     message: string;
 }
+
 
 const Page = () => {
     const [email, setEmail] = React.useState<string>('');
@@ -24,6 +26,7 @@ const Page = () => {
     const [passwordError, setPasswordError] = React.useState<FormError>({ error: false, message: '' });
     const [serverError, setServerError] = React.useState<FormError>({ error: false, message: '' })
     const [user, setUser] = useAtom(userAtom);
+    const [mail,setMail] = useAtom(emailAtom);
 
     const Router = useRouter();
     const Logintest = async () => {
@@ -44,10 +47,11 @@ const Page = () => {
             });
     
             // ログイン成功時の処理
-            const { token, user } = response.data; // 仮のレスポンスデータ構造です
+            const { token, user } = response.data; // 仮のレスポンスデータ構造
             setUser(true);
             console.log("success login")
             //setUser(user);
+            setMail(email)
             localStorage.setItem('token', token); // トークンをローカルストレージに保存
             //Router.replace("/cook/question");
         } catch (error) {
@@ -120,7 +124,6 @@ const Page = () => {
                 </form>
             </div>
             
-
         </div>
     );
 };
