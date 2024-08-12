@@ -37,7 +37,9 @@ export default function Home() {
     const getCsrfToken = async () => {
       try{
         const {data} = await axios.get<CsrfToken>(
-          `${process.env.NEXT_PUBLIC_API_URL}/csrf`
+          `${process.env.NEXT_PUBLIC_API_URL}/csrf`,{
+            withCredentials: true
+          }
           //"http://localhost:8080/csrf"
         )
         console.log(data);
