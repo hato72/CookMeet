@@ -5,14 +5,21 @@ import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import Link from "next/link";
 import { Button } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
+import { userAtom } from "@/states/store/authAtom";
+import { useAtom, atom } from "jotai";
+
+export const emailAtom = atom('') //ログイン時のemailを取得する
 
 const UploadPage: React.FC = () => {
   const [imageSrc, setImageSrc] = React.useState(
-    "path_to_placeholder_image.jpg"
+    "src/app/mypage/settings/IconFile/sample_icon.png"
   );
-  const [email, setEmail] = React.useState("email: user@example.com");
-  const [username, setUsername] = React.useState("name: ユーザー名");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  // const [email, setEmail] = React.useState("email: user@example.com");
+  // const [username, setUsername] = React.useState("name: ユーザー名");
+  const [user,setUser] = useAtom(userAtom)
+  const username = "user"
+  const [email,setEmail] = useAtom(emailAtom)
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (event.target.files && event.target.files[0]) {
