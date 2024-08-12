@@ -8,16 +8,17 @@ import { CloudUpload } from "@mui/icons-material";
 import { userAtom } from "@/states/store/authAtom";
 import { useAtom } from "jotai";
 import { emailAtom } from "@/states/store/emailAtom";
+import { usernameAtom } from "@/states/store/usernameAtom";
 
 const UploadPage: React.FC = () => {
   const [imageSrc, setImageSrc] = React.useState(
-    "src/app/mypage/settings/IconFile/sample_icon.png"
+    "sample.png"
   );
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   // const [email, setEmail] = React.useState("email: user@example.com");
   // const [username, setUsername] = React.useState("name: ユーザー名");
   const [user,setUser] = useAtom(userAtom)
-  const username = "user"
+  const [username,setUsername] = useAtom(usernameAtom)
   const [email,setEmail] = useAtom(emailAtom)
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {

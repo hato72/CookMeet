@@ -8,6 +8,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import axios from 'axios';
+import { usernameAtom } from "@/states/store/usernameAtom";
+import { useAtom } from "jotai";
 
 export type CsrfToken = {
     csrf_token: string
@@ -41,6 +43,7 @@ const Page = () => {
     const [passwordConfirmationError, setPasswordConfirmationError] = React.useState<FormError>({ error: false, message: '' });
     const [serverError, setServerError] = React.useState<FormError>({ error: false, message: '' });
     const router = useRouter();
+    const [username,setUsername] = useAtom(usernameAtom)
 
     const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSigninFormInput({
@@ -165,6 +168,7 @@ const Page = () => {
             // ログイン処理が成功した場合、トップページにリダイレクト
             router.replace('/');
             console.log("success create ")
+            setUsername(signinFormInput.name)
 
         } catch (err) {
             console.log(err);
