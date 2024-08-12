@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import axios from "axios";
-import { emailAtom } from "../mypage/settings/test/page";
+import { emailAtom } from "@/states/store/emailAtom";
 
 type FormError = {
     error: boolean;

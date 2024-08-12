@@ -6,9 +6,8 @@ import Link from "next/link";
 import { Button } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
 import { userAtom } from "@/states/store/authAtom";
-import { useAtom, atom } from "jotai";
-
-export const emailAtom = atom('') //ログイン時のemailを取得する
+import { useAtom } from "jotai";
+import { emailAtom } from "@/states/store/emailAtom";
 
 const UploadPage: React.FC = () => {
   const [imageSrc, setImageSrc] = React.useState(
