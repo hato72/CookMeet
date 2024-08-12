@@ -165,10 +165,10 @@ const Page = () => {
                 password: signinFormInput.password
             });
             
-            // ログイン処理が成功した場合、トップページにリダイレクト
-            router.replace('/');
+            // ログイン処理が成功した場合、loginページにリダイレクト
+            router.replace('/login');
             console.log("success create ")
-            setUsername(signinFormInput.name)
+            //setUsername(signinFormInput.name)
 
         } catch (err) {
             console.log(err);

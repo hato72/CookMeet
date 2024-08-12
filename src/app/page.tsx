@@ -35,12 +35,16 @@ export default function Home() {
   useEffect(() => {
     axios.defaults.withCredentials = true
     const getCsrfToken = async () => {
-      const { data } = await axios.get<CsrfToken>(
-        `${process.env.NEXT_PUBLIC_API_URL}/csrf`
-        //"http://localhost:8080/csrf"
-      )
-      axios.defaults.headers.common['X-CSRF-TOKEN'] = data.csrf_token
-      //console.log(data);
+      try{
+        const {data} = await axios.get<CsrfToken>(
+          `${process.env.NEXT_PUBLIC_API_URL}/csrf`
+          //"http://localhost:8080/csrf"
+        )
+        console.log(data);
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = data.csrf_token
+      }catch(error){
+        console.error('Error fetching CSRF token:', error);
+      }
     };
     getCsrfToken();
   }, []);
