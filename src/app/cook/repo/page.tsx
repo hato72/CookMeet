@@ -78,7 +78,7 @@ export default function MyPage() {
             <div className="w-[500px] left-[900px] top-[120px] flex flex-col items-center absolute">
         
             {/* <div className="flex flex-col justify-start items-center"> */}
-                <WhiteRoundButton>SNSでシェア</WhiteRoundButton>
+                {/* <WhiteRoundButton>SNSでシェア</WhiteRoundButton> */}
                 <Link href="/mypage">
                     <GreenRoundButton>マイページへ</GreenRoundButton>
                 </Link>
