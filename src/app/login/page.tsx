@@ -50,7 +50,7 @@ const Page = () => {
             setUser(true);
             console.log("success login")
             //setUser(user);
-            //setMail(email);
+            setMail(email);
             localStorage.setItem('token', token); // トークンをローカルストレージに保存
             //Router.replace("/cook/question");
         } catch (error) {
