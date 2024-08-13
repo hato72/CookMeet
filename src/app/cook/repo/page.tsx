@@ -1,3 +1,5 @@
+'use client';
+
 import RecipeCard from "@/components/base/meal/Meal";
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";

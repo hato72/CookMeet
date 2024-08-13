@@ -1,3 +1,5 @@
+'use client';
+
 import RecipeCard from "@/components/base/meal/Meal";
 
 export default function MyPage() {

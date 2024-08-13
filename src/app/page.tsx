@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import GreenRoundButton from "@/components/ui/buttun/GreenRoundButtun";
 import { useAtom } from 'jotai';

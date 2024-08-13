@@ -1,5 +1,4 @@
-"use client"
-
+'use client';
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";
 import WhiteRoundButton from "@/components/ui/buttun/WhiteRoundButton";
 import React, { useEffect } from "react";

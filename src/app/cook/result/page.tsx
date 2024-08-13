@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import RecipeCard from "@/components/base/meal/Meal";
 import BlackRoundButton from "@/components/ui/buttun/BlackRoundButton";

@@ -1,3 +1,5 @@
+'use client';
+
 import SocialMediaButton from "@/components/ui/buttun/SocialMediaButton";
 import Link from "next/link";
 
