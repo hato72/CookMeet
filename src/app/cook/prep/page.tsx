@@ -48,7 +48,7 @@ const Result  = ({params}: {params: {id: number}}) => {
         // };
 
         fetchRecipes();
-     },[]);
+     }, [id, ingredients,setIngredients,steps, setSteps]);
 
     const handleClick = () => {
         setOpen(!open);
