@@ -43,7 +43,7 @@ const Page = () => {
     const [passwordConfirmationError, setPasswordConfirmationError] = React.useState<FormError>({ error: false, message: '' });
     const [serverError, setServerError] = React.useState<FormError>({ error: false, message: '' });
     const router = useRouter();
-    const [username,setUsername] = useAtom(usernameAtom)
+    //const [username,setUsername] = useAtom(usernameAtom)
 
     const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSigninFormInput({

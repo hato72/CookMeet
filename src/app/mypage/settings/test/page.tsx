@@ -18,7 +18,8 @@ const UploadPage: React.FC = () => {
   // const [email, setEmail] = React.useState("email: user@example.com");
   // const [username, setUsername] = React.useState("name: ユーザー名");
   const [user,setUser] = useAtom(userAtom)
-  const [username,setUsername] = useAtom(usernameAtom)
+  //const [username,setUsername] = useAtom(usernameAtom)
+  const username = "user1"
   const [email,setEmail] = useAtom(emailAtom)
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
