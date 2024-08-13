@@ -49,12 +49,8 @@ export default function Home() {
         console.error('Error fetching CSRF token:', error);
       }
     };
-    if (!csrfTokenSet) {
-      axios.defaults.withCredentials = true;
-      getCsrfToken();
-    }
-    //getCsrfToken();
-  },  [csrfTokenSet]);
+    getCsrfToken();
+  },[]);
   
 
   return (
