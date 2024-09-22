@@ -11,6 +11,8 @@ https://cook-meet.vercel.app/
 ## 実行結果(サンプル動画)
 https://drive.google.com/file/d/1r2h5eN5zZ504joHI-lCUeWlXblg38WuQ/view?usp=drive_link
 
+(AI推論を立ち上げた際の途中結果) https://drive.google.com/file/d/1iLL5dcEWjPy9AvVYvCss8dT7w4cy4h4B/view?usp=drive_link
+
 ## 実行結果(スクリーンショット)
 https://drive.google.com/drive/folders/13FZTsp6b1pusNQ1nazpeFZ0wbgbyHS7o?usp=drive_link
 
