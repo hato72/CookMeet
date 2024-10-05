@@ -9,7 +9,7 @@ https://cook-meet.vercel.app/
 ``また、無料でホスティングされているデータベースを使用しているため、定期的にサービス(データベース)が動作しなくなります。適切に動作しなかった場合は実行結果(サンプル動画)という欄にある動画をご覧ください。``
 
 ## 実行結果(サンプル動画)
-https://drive.google.com/file/d/1r2h5eN5zZ504joHI-lCUeWlXblg38WuQ/view?usp=drive_link
+https://drive.google.com/file/d/1T05vgMLoN65t5sKBGtr0jtI4radsEeaC/view?usp=drive_link
 
 (AI推論を立ち上げた際の途中結果) https://drive.google.com/file/d/1iLL5dcEWjPy9AvVYvCss8dT7w4cy4h4B/view?usp=drive_link
 
