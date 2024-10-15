@@ -23,7 +23,8 @@ const Result  = ({params}: {params: {id: number}}) => {
      useEffect(() => {
          const fetchRecipes = async () => {
              try {
-                 const response = await fetch(`https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/${id}/details`); // Call the GET function
+                 //const response = await fetch(`${process.env.AI_BACKEND_URL}/v1/${id}/details`); // Call the GET function
+                 const response = await fetch(`http://localhost:8080/v1/${id}/details`); // Call the GET function
                  const data = await response.json(); // Extract JSON data from the response
                  setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
                  setSteps([...steps, data['steps']]);

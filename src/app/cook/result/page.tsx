@@ -37,7 +37,8 @@ const Result: React.FC = () => {
         const fetchRecipes = async () => {
             try {
                 /* 赤波線出ているがこれで問題ない */
-                const response = await fetch('https://recommend-recipes-4b45go5xeq-an.a.run.app/v1/recipes/recommend', {
+                //const response = await fetch(`${process.env.AI_BACKEND_URL}/v1/recipes/recommend`, {
+                const response = await fetch(`http://localhost:8080/v1/recipes/recommend`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -67,22 +68,22 @@ const Result: React.FC = () => {
                 </div>
                 <Grid container justifyContent="center">
 
-                    {/* <RecipeCard
+                    <RecipeCard
                         img={recipes[currentMeal].image_url}
                         title={recipes[currentMeal].title}
                         description={recipes[currentMeal].description}
                         width="350px"
                         height="450px"
                         url={recipes[currentMeal].url} 
-                    /> */}
-                    <RecipeCard
+                    />
+                    {/* <RecipeCard
                         img="https://recipe.r10s.jp/recipe-space/d/strg/ctrl/3/50fe37bda3c657b77f2842d28727ceb3e8d89f4e.31.2.3.2.jpg?interpolation=lanczos-none&fit=around|716:716&crop=716:716;*,*"
                         title="簡単☆本格ハンバーグソース レシピ・作り方"
                         description=""
                         width="350px"
                         height="450px"
                         url="https://recipe.rakuten.co.jp/recipe/1570003792/" 
-                    />
+                    /> */}
                 </Grid>
 
                 <Link href="/cook/prep">
