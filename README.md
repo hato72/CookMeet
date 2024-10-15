@@ -14,10 +14,10 @@ https://drive.google.com/file/d/1T05vgMLoN65t5sKBGtr0jtI4radsEeaC/view?usp=drive
 (AI推論を立ち上げた際の途中結果) https://drive.google.com/file/d/1iLL5dcEWjPy9AvVYvCss8dT7w4cy4h4B/view?usp=drive_link
 
 ## バックエンド(サーバーサイド)
-https://github.com/hato72/go_backend_hackathon
+https://github.com/hato72/cookmeet-go-backend
 
 ## バックエンド(推論AI)
-https://github.com/hato72/recommend-recipes
+https://github.com/hato72/cookmeet-recommend-recipes
 
 ## ページ・システムデザイン
 https://www.figma.com/file/odqLos9MRpgLxRzyeQLdqp/CookMeet?type=design&node-id=1669-162202&mode=design&t=SefV1V31H40r3biN-0
