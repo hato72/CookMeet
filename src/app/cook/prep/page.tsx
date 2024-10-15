@@ -24,10 +24,17 @@ const Result  = ({params}: {params: {id: number}}) => {
          const fetchRecipes = async () => {
              try {
                  //const response = await fetch(`${process.env.AI_BACKEND_URL}/v1/${id}/details`); // Call the GET function
-                 const response = await fetch(`http://localhost:8080/v1/${id}/details`); // Call the GET function
+                 //const response = await fetch(`http://localhost:8080/v1/${id}/details`); // Call the GET function
+                 const response = await fetch(`http://localhost:8080/v1/recipes/${id}/details`); // Call the GET function
+                 if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                 }
                  const data = await response.json(); // Extract JSON data from the response
-                 setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
-                 setSteps([...steps, data['steps']]);
+                //  setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
+                //  setSteps([...steps, data['steps']]);
+                    setIngredients(data['ingredients']);
+                    setSteps(data['steps']);
+
                 } catch (error) {
                  console.error('Error fetching recipes:', error);
              }
@@ -47,8 +54,8 @@ const Result  = ({params}: {params: {id: number}}) => {
         //     }
         // };
 
-        fetchRecipes();
-     }, [id, ingredients,setIngredients,steps, setSteps]);
+        //fetchRecipes();
+     }, [id, setIngredients, setSteps]);
 
     const handleClick = () => {
         setOpen(!open);
@@ -75,23 +82,23 @@ const Result  = ({params}: {params: {id: number}}) => {
                             subheader={
                                 <ListSubheader component="div" id="nested-list-subheader">
                                     <Typography variant="h6" component="div" color="textPrimary">
-                                        材料(サンプル)
+                                        材料
                                     </Typography>
                                 </ListSubheader>
                             }
                         >
-                            {/* {ingredients.map((ingredient, index) => (
+                            {ingredients.map((ingredient, index) => (
                                 <ListItemButton onClick={handleClick} key={index}>
                                     <CheckboxLabel text={`${ingredient.name}: ${ingredient.amount}`} />
                                 </ListItemButton>
-                            ))} */}
+                            ))}
 
-                            <ListItemButton onClick={handleClick}>
+                            {/* <ListItemButton onClick={handleClick}>
                                 <CheckboxLabel text={"ケチャップ：大さじ5"} />
                                 <CheckboxLabel text={"ソース：大さじ5"} />
                                 <CheckboxLabel text={"バター：20g"} />
                                 <CheckboxLabel text={"砂糖：小さじ1"} />
-                            </ListItemButton>
+                            </ListItemButton> */}
                         </List>
                     </div>
                 </Grid>
