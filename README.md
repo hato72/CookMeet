@@ -13,16 +13,16 @@ https://drive.google.com/file/d/1T05vgMLoN65t5sKBGtr0jtI4radsEeaC/view?usp=drive
 
 (AI推論を立ち上げた際の途中結果) https://drive.google.com/file/d/1iLL5dcEWjPy9AvVYvCss8dT7w4cy4h4B/view?usp=drive_link
 
-## 実行結果(スクリーンショット)
-https://drive.google.com/drive/folders/13FZTsp6b1pusNQ1nazpeFZ0wbgbyHS7o?usp=drive_link
-
 ## ページ・システムデザイン
 https://www.figma.com/file/odqLos9MRpgLxRzyeQLdqp/CookMeet?type=design&node-id=1669-162202&mode=design&t=SefV1V31H40r3biN-0
 
 <!--https://www.canva.com/design/DAGDn8CWwbs/gXv1wxaqmERPnnyMMvZp3Q/edit -->
 
-## Backend
+## バックエンド(サーバーサイド)
 https://github.com/hato72/go_backend_hackathon
+
+## バックエンド(推論AI)
+https://github.com/hato72/recommend-recipes
 
 ## Getting Started
 
