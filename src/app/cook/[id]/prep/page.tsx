@@ -20,20 +20,30 @@ const Result  = ({params}: {params: {id: number}}) => {
     const [ingredients, setIngredients] = useAtom(ingredientsAtom);
     const [steps, setSteps] = useAtom(stepsAtom);
     const [open, setOpen] = React.useState(true);
-
+    //console.log(id);
      useEffect(() => {
-        const fetchRecipes = async () => {
-             try {
-                 //const response = await fetch(`${process.env.AI_BACKEND_URL}/v1/${id}/details`); // Call the GET function
-                 const response = await fetch(`http://localhost:8080/v1/${id}/details`); // Call the GET function
-                 const data = await response.json(); // Extract JSON data from the response
-                 setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
-                 setSteps([...steps, data['steps']]);
-                } catch (error) {
-                 console.error('Error fetching recipes:', error);
-             }
-         };
-         fetchRecipes();
+        //console.log(id); // idの値を確認
+        if (id) {
+            const fetchRecipes = async () => {
+                try {
+                    //const response = await fetch(`${process.env.AI_BACKEND_URL}/v1/${id}/details`); // Call the GET function
+                    const response = await fetch(`http://localhost:8080/v1/recipes/${id}/details`); // Call the GET function
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json(); // Extract JSON data from the response
+                    //  setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
+                    //  setSteps([...steps, data['steps']]);
+                        setIngredients(data['ingredients']);
+                        setSteps(data['steps']);
+                    //  setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
+                    //  setSteps([...steps, data['steps']]);
+                    } catch (error) {
+                    console.error('Error fetching recipes:', error);
+                }
+            };
+            fetchRecipes();
+        }
         // const fetchRecipes = async () => {
         //     try {
         //         // ローカルサーバーからデータを取得
@@ -48,8 +58,8 @@ const Result  = ({params}: {params: {id: number}}) => {
         //     }
         // };
 
-        fetchRecipes();
-     }, [id, ingredients, steps, setIngredients, setSteps]);
+        //fetchRecipes();
+     }, [id, setIngredients, setSteps]);
 
     const handleClick = () => {
         setOpen(!open);
@@ -83,8 +93,9 @@ const Result  = ({params}: {params: {id: number}}) => {
                         >
                             {ingredients.map((ingredient, index) => (
                                 <ListItemButton onClick={handleClick} key={index}>
-                                    {/* CheckboxLabel コンポーネントを使用して各材料を表に表示 */}
-                                    <CheckboxLabel text={`${ingredient.name}: ${ingredient.amount}`} />
+                                    <CheckboxLabel text={ingredient && typeof ingredient === 'object' && 'name' in ingredient && 'amount' in ingredient
+                                        ? `${ingredient.name}: ${ingredient.amount}`
+                                        : `材料 ${index + 1}`} />
                                 </ListItemButton>
                             ))}
                         </List>
@@ -94,7 +105,8 @@ const Result  = ({params}: {params: {id: number}}) => {
                 <Link href="/cook/result">
                     <WhiteRoundButton>戻る</WhiteRoundButton>
                 </Link>
-                <Link href="/cook/process">
+                <Link href={`/cook/${id}/process`}>
+                {/* <Link href={{ pathname: `/cook/process`, query: { steps: JSON.stringify(steps) } }}> */}
                     <BlackRoundButton>作り方へ</BlackRoundButton>
                 </Link>
             </div >

@@ -86,7 +86,7 @@ const Result: React.FC = () => {
                     /> */}
                 </Grid>
 
-                <Link href="/cook/prep">
+                <Link href={`/cook/${recipes[currentMeal].id}/prep`}>
                     <GreenRoundButton>これを作る！</GreenRoundButton>
                 </Link>
                 
