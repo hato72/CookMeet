@@ -6,9 +6,8 @@ import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { CloudUpload } from "lucide-react"
-import BlackRoundButton from '@/components/ui/buttun/BlackRoundButton'
 
-export default function UploadPage() {
+export function UploadPageComponent() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [comment, setComment] = useState('')
 
@@ -49,9 +48,9 @@ export default function UploadPage() {
     <div className="container mx-auto p-4 max-w-6xl">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">記録しよう</h1>
 
-      <div className="flex flex-col md:flex-row gap-8 py-8">
+      <div className="flex flex-col md:flex-row gap-8">
         <div className="flex-1 min-w-[300px]">
-          <label className="flex flex-col items-center justify-center bg-gray-100 border-2 border-dashed border-primary rounded-lg cursor-pointer h-[300px] transition-colors hover:bg-gray-200">
+          <label className="flex flex-col items-center justify-center bg-gray-100 border-2 border-dashed border-primary rounded-lg cursor-pointer h-full min-h-[300px] transition-colors hover:bg-gray-200">
             <input
               type="file"
               accept="image/*"
@@ -71,23 +70,18 @@ export default function UploadPage() {
             placeholder="コメントを入力してください"
             value={comment}
             onChange={handleCommentChange}
-            className="w-full h-[268px] resize-none"
+            className="w-full h-full min-h-[300px] resize-none"
           />
         </div>
       </div>
 
-      <div className="mt-16 flex justify-center">
-        <Link href="/cook/repo">
-          {/* <Button onClick={handleSubmit} className="px-8 py-2">
+      <div className="mt-8 flex justify-center">
+        <Link href="/cook/repo/test">
+          <Button onClick={handleSubmit} className="px-8 py-2">
             完了
-          </Button> */}
-          <BlackRoundButton type="button" className="submit-button absolute left-[600px] top-[600px]" onClick={handleSubmit}>
-              完了
-          </BlackRoundButton>
+          </Button>
         </Link>
       </div>
     </div>
   )
 }
-
-//どっちも同じくらい
