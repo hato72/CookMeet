@@ -38,6 +38,6 @@ next-env.d.ts
 /public/
 .env
 src/app/cook/photo/cloudimage/
-src/app/cook/repo/test/
+src/app/cook/photo/test/
 src/app/cook/prep/
 src/app/cook/process/
