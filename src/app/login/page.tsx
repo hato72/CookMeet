@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import axios from "axios";
 import { emailAtom } from "@/states/store/emailAtom";
+import { useState } from "react";
 
 type FormError = {
     error: boolean;
@@ -26,6 +27,7 @@ const Page = () => {
     const [serverError, setServerError] = React.useState<FormError>({ error: false, message: '' })
     const [user, setUser] = useAtom(userAtom);
     const [mail,setMail] = useAtom(emailAtom);
+    const [showMockUser, setShowMockUser] = useState(false);
 
     const Router = useRouter();
     const Logintest = async () => {
@@ -76,6 +78,10 @@ const Page = () => {
         
     };
 
+    const toggleMockUser = () => {
+        setShowMockUser(!showMockUser);
+    };
+
     return (
         <div className="flex">
             <div className="basis-1/2 pt-16 pl-16 pr-5">
@@ -121,6 +127,21 @@ const Page = () => {
                         </div>
                     </div>
                 </form>
+                <div className="mt-8">
+                    <button
+                        onClick={toggleMockUser}
+                        className="text-green-700 underline"
+                    >
+                        {showMockUser ? "モックユーザー情報を隠す" : "モックユーザー情報を表示"}
+                    </button>
+                    {showMockUser && (
+                        <div className="mt-4 p-4 bg-green-100 rounded-md text-black">
+                            <p>モックユーザー情報：</p>
+                            <p>メールアドレス: mock@test.com</p>
+                            <p>パスワード: mock11</p>
+                        </div>
+                    )}
+                </div>
             </div>
             
         </div>

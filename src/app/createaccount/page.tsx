@@ -9,6 +9,7 @@ import React from "react";
 import axios from 'axios';
 import { usernameAtom } from "@/states/store/usernameAtom";
 import { useAtom } from "jotai";
+import WhiteQuadButton from "@/components/ui/buttun/WhiteQuadButtun";
 
 export type CsrfToken = {
     csrf_token: string
@@ -185,58 +186,60 @@ const Page = () => {
                     <p className="mt-10 text-green-700">アカウントを作成してください。</p>
                 </hgroup>
                 <form onSubmit={onSubmit} className="mt-10">
-                    <div>
-                        <div className="flex flex-col gap-y-4">
-                            <fieldset>
-                                <TextInput
-                                    label="ユーザー名"
-                                    type="text"
-                                    helperText={nameError.message}
-                                    error={nameError.error}
-                                    placeholder="例: クックミート"
-                                    value={signinFormInput.name}
-                                    onChange={handleChangeName}
-                                />
-                            </fieldset>
-                            <fieldset>
-                                <TextInput
-                                    label="メールアドレス"
-                                    type="email"
-                                    helperText={emailError.message}
-                                    error={emailError.error}
-                                    placeholder="例: sample@example.com"
-                                    value={signinFormInput.email}
-                                    onChange={handleChangeEmail}
-                                />
-                            </fieldset>
-                            <fieldset>
-                                <PasswordInput
-                                    helperText={passwordError.message}
-                                    error={passwordError.error}
-                                    value={signinFormInput.password}
-                                    placeholder="パスワードを入力してください"
-                                    onChange={handleChangePassword}
-                                />
-                            </fieldset>
-                            <fieldset>
-                                <PasswordInput
-                                    label="パスワード（再入力）"
-                                    helperText={passwordConfirmationError.message}
-                                    error={passwordConfirmationError.error}
-                                    value={passwordConfirmation}
-                                    placeholder="確認のため、もう一度パスワードを入力してください"
-                                    onChange={handleChangePasswordConfirmation}
-                                />
-                            </fieldset>
-                            <p>すでにアカウントをお持ちですか？  <Link href="/login" className="underline text-green-700">ログイン</Link></p>
-                        </div>
-                        <div className="mt-16">
-                            <menu className="flex gap-x-8">
-                                <li>
-                                    <GreenQuadButton type="submit">新規登録</GreenQuadButton>
-                                </li>
-                            </menu>
-                        </div>
+                    <div className="flex flex-col gap-y-4">
+                        <fieldset>
+                            <TextInput
+                                label="ユーザー名"
+                                type="text"
+                                helperText={nameError.message}
+                                error={nameError.error}
+                                placeholder="例: クックミート"
+                                value={signinFormInput.name}
+                                onChange={handleChangeName}
+                            />
+                        </fieldset>
+                        <fieldset>
+                            <TextInput
+                                label="メールアドレス"
+                                type="email"
+                                helperText={emailError.message}
+                                error={emailError.error}
+                                placeholder="例: sample@example.com"
+                                value={signinFormInput.email}
+                                onChange={handleChangeEmail}
+                            />
+                        </fieldset>
+                        <fieldset>
+                            <PasswordInput
+                                helperText={passwordError.message}
+                                error={passwordError.error}
+                                value={signinFormInput.password}
+                                placeholder="パスワードを入力してください"
+                                onChange={handleChangePassword}
+                            />
+                        </fieldset>
+                        <fieldset>
+                            <PasswordInput
+                                label="パスワード（再入力）"
+                                helperText={passwordConfirmationError.message}
+                                error={passwordConfirmationError.error}
+                                value={passwordConfirmation}
+                                placeholder="確認のため、もう一度パスワードを入力してください"
+                                onChange={handleChangePasswordConfirmation}
+                            />
+                        </fieldset>
+                    </div>
+                    <div className="mt-16">
+                        <menu className="flex gap-x-8">
+                            <li>
+                                <GreenQuadButton type="submit">新規登録</GreenQuadButton>
+                            </li>
+                            <li>
+                                <Link href='/login'>
+                                    <WhiteQuadButton>ログイン</WhiteQuadButton>
+                                </Link>
+                            </li>
+                        </menu>
                     </div>
                 </form>
             </div>
