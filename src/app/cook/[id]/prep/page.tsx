@@ -26,8 +26,8 @@ const Result  = ({params}: {params: {id: number}}) => {
         if (id) {
             const fetchRecipes = async () => {
                 try {
-                    //const response = await fetch(`${process.env.AI_BACKEND_URL}/v1/${id}/details`); // Call the GET function
-                    const response = await fetch(`http://localhost:8080/v1/recipes/${id}/details`); // Call the GET function
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_AI_BACKEND_URL}/v1/${id}/details`); // Call the GET function
+                    //const response = await fetch(`http://localhost:8080/v1/recipes/${id}/details`); // Call the GET function
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
