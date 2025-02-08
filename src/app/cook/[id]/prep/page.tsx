@@ -36,12 +36,11 @@ const Result  = ({params}: {params: {id: number}}) => {
                     const data = await response.json(); // Extract JSON data from the response
                     //  setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
                     //  setSteps([...steps, data['steps']]);
-                    console.log("data",data);
                     setIngredients(data['ingredients']);
                     setSteps(data['steps']);
-                    console.log("ingre",ingredients);
-                    console.log("data_ingre",data['ingredients']);
-                    console.log("data_step",data['steps']);
+                    // console.log("ingre",ingredients);
+                    // console.log("data_ingre",data['ingredients']);
+                    // console.log("data_step",data['steps']);
                     // setIngredients(Array.isArray(data.ingredients) ? data.ingredients : []);
                     // setSteps(Array.isArray(data.steps) ? data.steps : []);
                     //  setIngredients([...ingredients, data['ingredients']]) // Set the fetched recipes in the state
