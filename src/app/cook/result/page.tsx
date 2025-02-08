@@ -24,21 +24,24 @@ const Result: React.FC = () => {
     const [currentMeal, setCurrentMeal] = useState(0);
     const [meal, setMeal] = useAtom(mealAtom);
 
-    const arrowClicked = () => {
+    // ガード用: meal の値も確認する
+    const isMealValid = meal && meal.length >= 5;
 
-        if (currentMeal + 1 < 3) {
+    const arrowClicked = () => {
+        if (currentMeal + 1 < recipes.length) {
             setCurrentMeal(currentMeal + 1);
-        } else if (currentMeal == 2) {
+        } else {
             setCurrentMeal(0);
         }
     };
 
     useEffect(() => {
+        if (!isMealValid) {
+            console.error("Meal data is invalid", meal);
+            return;
+        }
         const fetchRecipes = async () => {
             try {
-                /* 赤波線出ているがこれで問題ない */
-                //const response = await fetch(`${process.env.NEXT_PUBLIC_AI_BACKEND_URL}/v1/recipes/recommend`, {
-                //const response = await fetch(`http://localhost:8080/v1/recipes/recommend`, {
                 const response = await fetch(`https://cookmeet-recommend-recipes-128862782844.asia-southeast1.run.app/v1/recipes/recommend`, {
                     method: 'POST',
                     headers: {
@@ -48,15 +51,23 @@ const Result: React.FC = () => {
                         "texts": [meal[2], meal[3], meal[4]],
                         "conditions": [meal[0], meal[1]]
                     })
-                }); // Call the GET function
-                const data = await response.json(); // Extract JSON data from the response
-                setRecipes(data['recipes']); // Set the fetched recipes in the state
+                });
+                const data = await response.json(); // レスポンスの内容確認
+                console.log("Fetched data:", data);
+                // recipes プロパティが存在し、配列であることを確認する
+                const newRecipes = Array.isArray(data.recipes) ? data.recipes : [];
+                setRecipes(newRecipes);
             } catch (error) {
                 console.error('Error fetching recipes:', error);
             }
         };
         fetchRecipes();
-    }, [meal]);
+    }, [meal, isMealValid]);
+
+    // recipes が存在しない場合のガード
+    if (recipes.length === 0) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <>
@@ -68,7 +79,6 @@ const Result: React.FC = () => {
                     <h1 className="text-3xl font-bold tracking-tight text-orange-500">おすすめ度{recipes[currentMeal].rank}位</h1>
                 </div>
                 <Grid container justifyContent="center">
-
                     <RecipeCard
                         img={recipes[currentMeal].image_url}
                         title={recipes[currentMeal].title}
@@ -77,26 +87,20 @@ const Result: React.FC = () => {
                         height="450px"
                         url={recipes[currentMeal].url} 
                     />
-                    {/* <RecipeCard
-                        img="https://recipe.r10s.jp/recipe-space/d/strg/ctrl/3/50fe37bda3c657b77f2842d28727ceb3e8d89f4e.31.2.3.2.jpg?interpolation=lanczos-none&fit=around|716:716&crop=716:716;*,*"
-                        title="簡単☆本格ハンバーグソース レシピ・作り方"
-                        description=""
-                        width="350px"
-                        height="450px"
-                        url="https://recipe.rakuten.co.jp/recipe/1570003792/" 
-                    /> */}
                 </Grid>
-
                 <Link href={`/cook/${recipes[currentMeal].id}/prep`}>
                     <GreenRoundButton>これを作る！</GreenRoundButton>
                 </Link>
-                
-                <br></br><br></br>
-                <WhiteRoundButton onClick={() => arrowClicked()}>←おすすめ度{recipes[currentMeal].rank - 1 == 0 ? 3 : recipes[currentMeal].rank - 1}位</WhiteRoundButton>
-                <BlackRoundButton onClick={() => arrowClicked()}>おすすめ度{recipes[currentMeal].rank + 1 == 4 ? 1 : recipes[currentMeal].rank + 1}位→</BlackRoundButton>
-            </div >
+                <br /><br />
+                <WhiteRoundButton onClick={() => arrowClicked()}>
+                    ←おすすめ度{recipes[currentMeal].rank - 1 === 0 ? 3 : recipes[currentMeal].rank - 1}位
+                </WhiteRoundButton>
+                <BlackRoundButton onClick={() => arrowClicked()}>
+                    おすすめ度{recipes[currentMeal].rank + 1 === 4 ? 1 : recipes[currentMeal].rank + 1}位→
+                </BlackRoundButton>
+            </div>
         </>
     );
-}
+};
 
 export default Result;
