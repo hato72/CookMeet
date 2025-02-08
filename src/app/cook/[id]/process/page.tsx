@@ -23,8 +23,8 @@ const Result  = ({params}: {params: {id:number}}) => {
      useEffect(() => {
          const fetchRecipes = async () => {
              try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_AI_BACKEND_URL}/v1/recipes/${id}/details`); // Call the GET function
-                //const response = await fetch(`http://localhost:8080/v1/recipes/${id}/details`); // Call the GET function
+                //const response = await fetch(`${process.env.NEXT_PUBLIC_AI_BACKEND_URL}/v1/recipes/${id}/details`); // Call the GET function
+                const response = await fetch(`http://localhost:8080/v1/recipes/${id}/details`); // Call the GET function
                 //const response = await fetch(`https://cookmeet-recommend-recipes-128862782844.asia-southeast1.run.app/v1/recipes/${id}/details`);
 
                  const data = await response.json(); // Extract JSON data from the response
