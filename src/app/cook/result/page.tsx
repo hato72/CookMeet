@@ -37,8 +37,8 @@ const Result: React.FC = () => {
         const fetchRecipes = async () => {
             try {
                 /* 赤波線出ているがこれで問題ない */
-                //const response = await fetch(`${process.env.NEXT_PUBLIC_AI_BACKEND_URL}/v1/recipes/recommend`, {
-                const response = await fetch(`http://localhost:8080/v1/recipes/recommend`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_AI_BACKEND_URL}/v1/recipes/recommend`, {
+                //const response = await fetch(`http://localhost:8080/v1/recipes/recommend`, {
                 //const response = await fetch(`https://cookmeet-recommend-recipes.onrender.com/v1/recipes/recommend`, {
                     method: 'POST',
                     headers: {
