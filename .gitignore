@@ -35,6 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+/.VSCodeCounter/
 /public/
 .env
 src/app/cook/photo/cloudimage/
