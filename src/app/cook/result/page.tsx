@@ -65,9 +65,13 @@ const Result: React.FC = () => {
     }, [meal, isMealValid]);
 
     // recipes が存在しない場合のガード
-    // if (recipes.length === 0) {
-    //     return <div>Loading...</div>;
-    // }
+    if (recipes.length === 0) {
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <div>Loading...</div>
+            </div>
+        );
+    }
 
     return (
         <>
