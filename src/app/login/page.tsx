@@ -89,6 +89,12 @@ const Page = () => {
         e.preventDefault();
         //Login();
         //Logintest();
+
+        // ログイン試行前にエラー状態をリセット
+        setEmailError({ error: false, message: '' });
+        setPasswordError({ error: false, message: '' });
+        setServerError({ error: false, message: '' });
+
         const success = await Login();
         if (success){
             Router.replace("/");
