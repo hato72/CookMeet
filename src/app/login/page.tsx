@@ -55,10 +55,25 @@ const Page = () => {
             setMail(email);
             localStorage.setItem('token', token); // トークンをローカルストレージに保存
             //Router.replace("/cook/question");
+            return true;
         } catch (error) {
             console.error(error);
             // ログイン失敗時の処理
-            setServerError({ ...serverError, error: true, message: 'ログインに失敗しました。メールアドレスとパスワードを確認してください。' });
+            //setServerError({ ...serverError, error: true, message: 'ログインに失敗しました。メールアドレスとパスワードを確認してください。' });
+            if (axios.isAxiosError(error) && error.response) {
+                if (error.response.status === 404) {
+                    // ユーザー情報が見つからなかった場合
+                    setEmailError({ error: true, message: 'ユーザー情報が見つかりません。' });
+                } else if (error.response.status === 401) {
+                    // メールアドレスは正しいが、パスワードが違う場合
+                    setPasswordError({ error: true, message: 'パスワードが違います。' });
+                } else {
+                    setServerError({ error: true, message: 'ログインに失敗しました。' });
+                }
+            } else {
+                setServerError({ error: true, message: 'ログインに失敗しました。' });
+            }
+            return false;
         }
     };
 
@@ -70,12 +85,14 @@ const Page = () => {
         setPassword(e.target.value);
     };
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        Login();
+        //Login();
         //Logintest();
-        Router.replace("/");
-        
+        const success = await Login();
+        if (success){
+            Router.replace("/");
+        }        
     };
 
     const toggleMockUser = () => {
