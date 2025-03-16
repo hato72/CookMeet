@@ -7,9 +7,11 @@ https://cook-meet.vercel.app
 <!-- ``現在は推論AIのデプロイを行っていません`` -->
 
 ## 実行結果(デモ動画)
-https://drive.google.com/file/d/1L8JsU_FcsA0JaRtv5tkti12rG_ly9EEe/view?usp=drive_link
+https://drive.google.com/file/d/16XizWOFHoByUQlU92FDLvNihm2YOXuTK/view?usp=drive_link
 
-(AI推論部分がメインのデモ動画) https://drive.google.com/file/d/1SjmfFs9iQ_2A-BEr94Wnj4JVdCtln6xa/view?usp=drive_link
+<!-- https://drive.google.com/file/d/1L8JsU_FcsA0JaRtv5tkti12rG_ly9EEe/view?usp=drive_link
+
+(AI推論部分がメインのデモ動画) https://drive.google.com/file/d/1SjmfFs9iQ_2A-BEr94Wnj4JVdCtln6xa/view?usp=drive_link -->
 
 ## バックエンド(サーバーサイド)
 https://github.com/hato72/cookmeet-go-backend
