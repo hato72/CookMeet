@@ -14,7 +14,7 @@ https://drive.google.com/file/d/1L8JsU_FcsA0JaRtv5tkti12rG_ly9EEe/view?usp=drive
 ## バックエンド(サーバーサイド)
 https://github.com/hato72/cookmeet-go-backend
 
-## バックエンド(推論AI)
+## 推論AI
 https://github.com/hato72/cookmeet-recommend-recipes
 
 ## ページ・システムデザイン
