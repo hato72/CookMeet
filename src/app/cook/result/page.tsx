@@ -11,7 +11,7 @@ import React, { useState,useEffect } from 'react';
 import Link from "next/link";
 
 const Result: React.FC = () => {
-    const [recipes, setRecipes] = useState([{
+        const [recipes, setRecipes] = useState([{
         id: 0,
         title: '',
         url: '',
@@ -21,13 +21,22 @@ const Result: React.FC = () => {
         rank: 0
     }
     ]);
+    const [loading, setLoading] = useState<boolean>(false);
+    
     const [currentMeal, setCurrentMeal] = useState(0);
     const [meal, setMeal] = useAtom(mealAtom);
 
-    // ガード用: meal の値も確認する
     const isMealValid = meal && meal.length >= 5;
 
-    const arrowClicked = () => {
+    const arrowLeftClicked = () => {
+        if (currentMeal - 1 >= 0) {
+            setCurrentMeal(currentMeal - 1);
+        } else {
+            setCurrentMeal(recipes.length - 1);
+        }
+    };
+
+    const arrowRightClicked = () => {
         if (currentMeal + 1 < recipes.length) {
             setCurrentMeal(currentMeal + 1);
         } else {
@@ -42,6 +51,7 @@ const Result: React.FC = () => {
         }
         const fetchRecipes = async () => {
             try {
+                setLoading(true);
                 const response = await fetch(`https://cookmeet-recommend-recipes-128862782844.asia-southeast1.run.app/v1/recipes/recommend`, {
                     method: 'POST',
                     headers: {
@@ -54,17 +64,29 @@ const Result: React.FC = () => {
                 });
                 const data = await response.json(); // レスポンスの内容確認
                 console.log("Fetched data:", data);
-                // recipes プロパティが存在し、配列であることを確認する
                 const newRecipes = Array.isArray(data.recipes) ? data.recipes : [];
                 setRecipes(newRecipes);
             } catch (error) {
                 console.error('Error fetching recipes:', error);
+            } finally {
+                setLoading(false);
             }
         };
         fetchRecipes();
     }, [meal, isMealValid]);
 
-    // recipes が存在しない場合のガード
+    // 推論中なら中央にローディング表示を行う
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <div className="flex flex-col items-center">
+                    <div className="text-2xl font-bold mb-4">推論中...</div>
+                    <div className="loader border-t-4 border-blue-500 rounded-full w-12 h-12 animate-spin"></div>
+                </div>
+            </div>
+        );
+    }
+
     if (recipes.length === 0) {
         return (
             <div className="flex items-center justify-center h-screen">
@@ -96,10 +118,10 @@ const Result: React.FC = () => {
                     <GreenRoundButton>これを作る！</GreenRoundButton>
                 </Link>
                 <br /><br />
-                <WhiteRoundButton onClick={() => arrowClicked()}>
+                <WhiteRoundButton onClick={() => arrowLeftClicked()}>
                     ←おすすめ度{recipes[currentMeal].rank - 1 === 0 ? 3 : recipes[currentMeal].rank - 1}位
                 </WhiteRoundButton>
-                <BlackRoundButton onClick={() => arrowClicked()}>
+                <BlackRoundButton onClick={() => arrowRightClicked()}>
                     おすすめ度{recipes[currentMeal].rank + 1 === 4 ? 1 : recipes[currentMeal].rank + 1}位→
                 </BlackRoundButton>
             </div>
