@@ -51,7 +51,6 @@ const Page = () => {
             name: e.target.value
         });
 
-        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
         if (nameError.error) {
             validateName(e.target.value);
         }
@@ -63,7 +62,6 @@ const Page = () => {
             email: e.target.value
         });
 
-        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
         if (emailError.error) {
             validateEmail(e.target.value);
         }
@@ -75,7 +73,6 @@ const Page = () => {
             password: e.target.value
         });
 
-        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
         if (passwordError.error) {
             validatePassword(e.target.value);
         }
@@ -84,7 +81,6 @@ const Page = () => {
     const handleChangePasswordConfirmation = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPasswordConfirmation(e.target.value);
 
-        // 一度エラーを出してしまったときだけ、都度バリデーションを行う
         if (passwordConfirmationError.error) {
             validatePasswordConfirmation(e.target.value);
         }
@@ -144,8 +140,8 @@ const Page = () => {
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setServerError({ error: false, message: '' });
 
-        // バリデーション
         const isNameError = validateName();
         const isEmailError = validateEmail();
         const isPasswordError = validatePassword();
@@ -156,27 +152,23 @@ const Page = () => {
             return;
         }
 
-        // 以下ログイン処理
         try {
-            
             await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signup`, {
                 name: signinFormInput.name,
                 email: signinFormInput.email,
                 password: signinFormInput.password
             });
-            
-            // ログイン処理が成功した場合、loginページにリダイレクト
             router.replace('/login');
-            console.log("success create ")
-            //setUsername(signinFormInput.name)
-
+            console.log("success create ");
         } catch (err) {
-            console.log(err);
-            setServerError({ ...serverError, error: true, message: 'サーバーエラーが発生しました' });
+            console.error(err);
+            if (axios.isAxiosError(err) && err.response && err.response.status === 409) {
+                setServerError({ ...serverError, error: true, message: 'user already exist' });
+            } else {
+                setServerError({ ...serverError, error: true, message: 'サーバーエラーが発生しました' });
+            }
         }
     };
-
-
 
     return (
         <div className="flex">
@@ -243,8 +235,6 @@ const Page = () => {
                     </div>
                 </form>
             </div>
-            
-
         </div>
     );
 };
