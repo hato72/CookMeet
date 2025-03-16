@@ -163,7 +163,7 @@ const Page = () => {
         } catch (err) {
             console.error(err);
             if (axios.isAxiosError(err) && err.response && err.response.status === 409) {
-                setServerError({ ...serverError, error: true, message: 'user already exist' });
+                setServerError({ ...serverError, error: true, message: 'ユーザーが存在しています' });
             } else {
                 setServerError({ ...serverError, error: true, message: 'サーバーエラーが発生しました' });
             }
@@ -179,6 +179,11 @@ const Page = () => {
                 </hgroup>
                 <form onSubmit={onSubmit} className="mt-10">
                     <div className="flex flex-col gap-y-4">
+                        {serverError.error && (
+                            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                                <span className="block sm:inline">{serverError.message}</span>
+                            </div>
+                        )}
                         <fieldset>
                             <TextInput
                                 label="ユーザー名"
