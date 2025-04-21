@@ -97,12 +97,12 @@ const Result  = ({params}: {params: {id:number}}) => {
                     </div>
                 </Grid>
 
-                <Link href="/cook/prep">
+                <Link href={`/cook/${id}/prep`}>
                     <WhiteRoundButton>戻る</WhiteRoundButton>
                 </Link>
-                <Link href="/cook/photo">
+                <Link href={`/cook/${id}/photo`}>
                 {/* <Link href="/cook/photo/test"> */}
-                    <BlackRoundButton>これで完成! 写真を撮ろう!</BlackRoundButton>
+                    <BlackRoundButton>これで完成! 作り終わったら写真を撮ろう!</BlackRoundButton>
                 </Link>
             </div >
         </>

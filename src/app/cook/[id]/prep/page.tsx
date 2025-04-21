@@ -86,26 +86,6 @@ const Result  = ({params}: {params: {id: number}}) => {
                     {/* ingredientsに材料が格納されているから、それをチェックボックス形式で表示したい */}
                     {/* <CheckList/> */}
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                        {/* <List
-                            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-                            component="nav"
-                            aria-labelledby="nested-list-subheader"
-                            subheader={
-                                <ListSubheader component="div" id="nested-list-subheader">
-                                    <Typography variant="h6" component="div" color="textPrimary">
-                                        材料
-                                    </Typography>
-                                </ListSubheader>
-                            }
-                        >
-                            {ingredients.map((ingredient, index) => (
-                                <ListItemButton onClick={handleClick} key={index}>
-                                    <CheckboxLabel text={ingredient && typeof ingredient === 'object' && 'name' in ingredient && 'amount' in ingredient
-                                        ? `${ingredient.name}: ${ingredient.amount}`
-                                        : `材料 ${index + 1}`} />
-                                </ListItemButton>
-                            ))}
-                        </List> */}
                         <List
                             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
                             component="nav"

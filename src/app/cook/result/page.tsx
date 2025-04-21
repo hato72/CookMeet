@@ -11,7 +11,7 @@ import React, { useState,useEffect } from 'react';
 import Link from "next/link";
 
 const Result: React.FC = () => {
-        const [recipes, setRecipes] = useState([{
+    const [recipes, setRecipes] = useState([{
         id: 0,
         title: '',
         url: '',

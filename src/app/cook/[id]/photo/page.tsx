@@ -10,7 +10,9 @@ import BlackRoundButton from '@/components/ui/buttun/BlackRoundButton'
 import { Input } from "@/components/ui/input"
 import { useRouter } from 'next/navigation'
 
-export default function UploadPage() {
+export default function UploadPage({params}: {params: {id: number}}) {
+  const { id } = params;
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [comment, setComment] = useState('')
   const [title, setTitle] = useState('')
@@ -51,8 +53,7 @@ export default function UploadPage() {
       formData.append('icon', selectedFile)
       formData.append('comment', comment)
       formData.append('title', title)
-      // クックパッドなどのURLがあれば追加できるようにする場合
-      // formData.append('url', recipeUrl)
+      formData.append('url', `https://recipe.rakuten.co.jp/recipe/${id}`)
 
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/cuisines`, formData, {
         headers: {
