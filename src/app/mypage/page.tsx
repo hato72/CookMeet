@@ -16,7 +16,7 @@ export default function MyPage() {
             </Link>
             </div>
             <div className="left-[150px] top-[300px] absolute">
-            <Link href="/mypage/history">
+            <Link href="/cook/repo">
                 <SocialMediaButton className="w-[800px]">調理履歴</SocialMediaButton>
             </Link>
             </div>
