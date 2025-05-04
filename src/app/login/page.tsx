@@ -62,11 +62,11 @@ const Page = () => {
             //setServerError({ ...serverError, error: true, message: 'ログインに失敗しました。メールアドレスとパスワードを確認してください。' });
             if (axios.isAxiosError(error) && error.response) {
                 if (error.response.status === 404) {
-                    // ユーザー情報が見つからなかった場合
                     setEmailError({ error: true, message: 'ユーザー情報が見つかりません。' });
                 } else if (error.response.status === 401) {
-                    // メールアドレスは正しいが、パスワードが違う場合
                     setPasswordError({ error: true, message: 'パスワードが違います。' });
+                } else if (error.response.status === 400) {
+                    setPasswordError({ error: true, message: 'パスワードは6文字以上である必要があります。' });
                 } else {
                     setServerError({ error: true, message: 'ログインに失敗しました。' });
                 }
