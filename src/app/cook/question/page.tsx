@@ -86,7 +86,7 @@ export default function Questions() {
         }
         setMeal(newAnswers);
     };
-    console.log(meal);
+    // console.log(meal);
 
     return (
         <div className={styles.App}>

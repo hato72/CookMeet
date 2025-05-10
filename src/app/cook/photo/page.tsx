@@ -61,7 +61,8 @@ export default function UploadPage() {
         withCredentials: true
       })
 
-      console.log('File uploaded successfully', response.data)
+      // console.log('File uploaded successfully', response.data)
+      console.log('File uploaded successfully')
       // 成功したらリポジトリページに遷移
       router.push('/cook/repo')
     } catch (error) {

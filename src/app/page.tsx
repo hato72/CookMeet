@@ -43,7 +43,8 @@ export default function Home() {
           }
           //"http://localhost:8080/csrf"
         )
-        console.log(data);
+        // console.log(data);
+        console.log("successfully set csrf_token")
         axios.defaults.headers.common['X-CSRF-TOKEN'] = data.csrf_token
       }catch(error){
         console.error('Error fetching CSRF token:', error);
