@@ -4,8 +4,6 @@
 ## デモページ
 https://cook-meet.vercel.app
 
-<!-- ``現在は推論AIのデプロイを行っていません`` -->
-
 ## 実行結果(デモ動画)
 https://drive.google.com/file/d/16XizWOFHoByUQlU92FDLvNihm2YOXuTK/view?usp=drive_link
 
@@ -25,18 +23,17 @@ https://www.figma.com/file/odqLos9MRpgLxRzyeQLdqp/CookMeet?type=design&node-id=1
 <!--https://www.canva.com/design/DAGDn8CWwbs/gXv1wxaqmERPnnyMMvZp3Q/edit -->
 
 ## 使用技術
-フロントエンドのデプロイ：Vercel
+フロントエンド：
 
-サーバーデプロイ：Render
+TypeScript、Next.js、Vercel(デプロイ)
 
-サーバー用データベース：Supabase(PostgreSQL)
+サーバー：
 
-AI推論デプロイ：GCP(Cloud Run)
+Go、Echo、Supabase(PostgreSQL)、Github Actions、GCP Cloud Storage、GCP Secret Manager、GCP(デプロイ)
 
-AI推論用データベース：Upstash(Redis)
+AI推論：
 
-
-
+Python、Flask、Upstash(Redis)、GCP(デプロイ)
 
 ## Getting Started
 
