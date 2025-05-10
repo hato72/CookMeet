@@ -17,7 +17,7 @@ export default function MyPage() {
             </div>
             <div className="left-[150px] top-[300px] absolute">
             <Link href="/cook/repo">
-                <SocialMediaButton className="w-[800px]">調理履歴</SocialMediaButton>
+                <SocialMediaButton className="w-[800px]">調理記録</SocialMediaButton>
             </Link>
             </div>
         </>

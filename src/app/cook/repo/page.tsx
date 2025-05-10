@@ -35,7 +35,7 @@ export default function MyPage() {
         setCuisines(response.data);
       } catch (err) {
         console.error('Error fetching cuisines:', err);
-        setError('料理データの取得に失敗しました');
+        setError('料理データの取得に失敗しました　ログインしてください');
       } finally {
         setLoading(false);
       }
@@ -43,6 +43,25 @@ export default function MyPage() {
 
     fetchCuisines();
   }, []);
+
+  const deleteCuisine = async (cuisineId: number) => {
+    try {
+      const token = localStorage.getItem('token');
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/cuisines/${cuisineId}`, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+
+      const updatedCuisines = cuisines.filter(cuisine => cuisine.id !== cuisineId);
+      setCuisines(updatedCuisines);
+    } catch (error) {
+      console.error('Error deleting cuisine:', error);
+      // エラー処理を追加
+    }
+  };
 
   if (loading) {
     return (
@@ -71,11 +90,6 @@ export default function MyPage() {
           {cuisines.length === 0 ? (
             <div className="text-center py-12">
               <Typography variant="h6">まだ料理の記録がありません</Typography>
-              {/* <div className="mt-4">
-                <Link href="/cook/photo">
-                  <BlackRoundButton>料理を記録する</BlackRoundButton>
-                </Link>
-              </div> */}
             </div>
           ) : (
             cuisines.map((cuisine) => (
@@ -88,6 +102,11 @@ export default function MyPage() {
                   width="100%"
                   height="400px"
                   url={cuisine.url || '#'}
+                  onDelete={() => {
+                    if (window.confirm('本当にこの料理を削除しますか？')) {
+                      deleteCuisine(cuisine.id);
+                    }
+                  }}
                 />
               </Grid>
             ))
